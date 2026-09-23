@@ -1,53 +1,48 @@
 # Data Lens
 
-Visual learning site for data management, governance, and the data lifecycle. Lessons, the glossary, and citations come from the educational content pack in `src/data/` — original summaries with public title-and-URL sources.
+A visual learning site for data management. It follows data from the decision to create it through storage, use, sharing, archive, and destruction, and it teaches governance, quality, roles, and master data along the way.
 
-## Run locally
+Lessons are original teaching prose. Public sources are cited by title and URL on each lesson and on the [sources](/sources) page. This is not legal advice.
+
+## Start here
+
+The primary path is the **Data Journey**: one apparel SKU (`NL-HAT-204`, the Harbor Beanie) and one customer (Maya Chen) across seven stages. Each stage names what happens to the data, who owns the decision, the quality risk, a governance checkpoint, and links into deeper lessons.
+
+## Routes
+
+| Path | What it is |
+| --- | --- |
+| `/` | Home. Primary call to action opens the journey. |
+| `/journey` | Start-to-end story. `?stage=use` opens a stage directly. |
+| `/paths` | Beginner, Practitioner, and Governance lead routes with time estimates. |
+| `/tracks/[trackId]` | Lesson lists for lifecycle, governance, the DAMA wheel, roles, quality and metadata, and MDM. |
+| `/modules/[moduleId]` | Full lesson: concept, how it works, example, pitfalls, checklist, quiz, sources. |
+| `/labs` | Practice hub. |
+| `/labs/quality-score` | Completeness, accuracy, timeliness, and consistency on sample rows or sliders. |
+| `/labs/raci` | Assign R/A/C/I for retiring a customer attribute. Saved locally. |
+| `/labs/lifecycle-choice` | Scenario cards with consequence feedback. |
+| `/cases` | Three end-to-end stories. |
+| `/cases/retail-pim` | Catalog create, enrich, publish, retire. |
+| `/cases/customer-mdm` | Golden record, match conflicts, unmerge. |
+| `/cases/research-fair` | FAIR readiness for a durability dataset. |
+| `/search` | Client-side search across lessons, glossary, journey, cases, labs, and paths. |
+| `/glossary` | Working definitions. |
+| `/sources` | Public bibliography. |
+
+## Progress
+
+Lesson completion is stored in `localStorage` under `datalens.completedModules` (a JSON array of module ids). Older object-shaped values are read and normalized. Passing a lesson quiz adds the id. Other features use separate keys (`datalens.checklist.*`, `datalens.raciLab`, `datalens.lifecycleLab`, `datalens.journeyVisited`, `datalens.fairChecks`) so they do not overwrite completion.
+
+## Develop
 
 ```bash
 npm install
 npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-Other scripts:
-
-```bash
 npm run build
-npm start
-npm run lint
 ```
 
-No environment variables are required. Progress is stored in the browser under `datalens.completedModules` (localStorage). Clearing site data resets it.
-
-## Routes
-
-| Path | What you see |
-| --- | --- |
-| `/` | Home, track cards, progress |
-| `/learn` | All 38 lessons |
-| `/learn/lifecycle` | Clickable 7-stage lifecycle |
-| `/learn/dama` | Clickable DAMA knowledge-area wheel |
-| `/learn/governance`, `/learn/roles`, `/learn/quality`, `/learn/mdm` | The other tracks |
-| `/learn/[track]/[module]` | Lesson: summary, key points, quiz, sources |
-| `/glossary` | Searchable glossary |
-| `/sources` | Annotated bibliography and lesson citations |
-| `/progress` | Per-track completion |
-
-## Deploy on Vercel
-
-1. Import this repository. Vercel detects Next.js.
-2. Leave the build command as `npm run build` and the output as the Next.js default.
-3. Do not add environment variables for the learning site. There is no database or auth.
-4. Deploy. The App Router pages are static except for client-side progress, quizzes, and search.
-
-Node.js 20 or newer is enough. The app uses the default Node.js runtime (Fluid Compute on Vercel). It does not set an Edge runtime.
+`npm run build` checks that every original lesson has a full body and a quiz of at least two questions, then runs the Next.js production build. No database, auth, or environment variables are required.
 
 ## Content
 
-- `src/data/curriculum.json` — 6 tracks, 38 modules
-- `src/data/glossary.json` — glossary terms
-- `src/data/bibliography.ts` — annotated sources transcribed from the pack bibliography
-
-Governance and privacy lessons are educational overviews, not legal advice.
+Curriculum, glossary, journey, paths, and cases live in `src/data/`. Lesson prose is original. `scripts/apply_lessons.py` can regenerate `curriculum.json` from `curriculum.base.json` plus the lesson modules in `scripts/`.

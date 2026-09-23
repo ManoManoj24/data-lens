@@ -1,0 +1,72 @@
+{
+  "paths": [
+    {
+      "id": "beginner",
+      "title": "Beginner",
+      "audience": "New to data management",
+      "summary": "Learn the lifecycle spine, the quality lenses you will use immediately, and enough master-data vocabulary to follow the journey without getting lost.",
+      "outcome": "You can place a customer or a product on the seven stages, name a quality defect by its dimension, and explain why a system of record matters.",
+      "steps": [
+        {"moduleId": "lc-why", "note": "Why a map beats a pile of keywords."},
+        {"moduleId": "lc-compare", "note": "Translate UW, NIST RDaF, and USGS without picking a fight about labels."},
+        {"moduleId": "lc-unified", "note": "The seven-stage spine this site uses everywhere else."},
+        {"moduleId": "lc-plan", "note": "Purpose, minimization, owner, retention."},
+        {"moduleId": "lc-create", "note": "Context and standards at the door."},
+        {"moduleId": "lc-store", "note": "Custody, backups, and the system of record."},
+        {"moduleId": "lc-use", "note": "Processing with a trail."},
+        {"moduleId": "lc-share", "note": "Least privilege and certified publish."},
+        {"moduleId": "lc-archive-destroy", "note": "Two different endings."},
+        {"moduleId": "qm-dimensions", "note": "Six ways data fails a decision."},
+        {"moduleId": "qm-measure", "note": "From a dimension to a monitor and a source fix."},
+        {"moduleId": "mdm-master", "note": "What master data is, in one domain you can picture."}
+      ]
+    },
+    {
+      "id": "practitioner",
+      "title": "Practitioner",
+      "audience": "Analysts, stewards, and engineers who already know the lifecycle",
+      "summary": "Walk the DAMA wheel as actual work, then the roles and the MDM mechanics you will operate: golden records, match and merge, hierarchies.",
+      "outcome": "You can say what each knowledge area owes the others, assign a RACI without theater, and describe a merge you could also undo.",
+      "steps": [
+        {"moduleId": "dama-gov", "note": "The hub, and what it refuses to let other areas invent."},
+        {"moduleId": "dama-arch", "note": "Blueprints and rival systems of record."},
+        {"moduleId": "dama-model", "note": "Conceptual, logical, physical—and grain mistakes."},
+        {"moduleId": "dama-storage", "note": "Service levels, restores, retirement of stores."},
+        {"moduleId": "dama-security", "note": "Classification and proportionate control."},
+        {"moduleId": "dama-integration", "note": "Contracts, not spaghetti."},
+        {"moduleId": "dama-content", "note": "The unstructured half of the truth."},
+        {"moduleId": "dama-refmdm", "note": "Where reference and master sit on the wheel."},
+        {"moduleId": "dama-dwbi", "note": "Certified metrics versus sandbox charts."},
+        {"moduleId": "dama-metadata", "note": "Metadata the controls can read."},
+        {"moduleId": "dama-quality", "note": "Fit for use as a loop, not a cleanse."},
+        {"moduleId": "roles-trio", "note": "Owner, steward, custodian."},
+        {"moduleId": "roles-raci", "note": "One accountable role."},
+        {"moduleId": "roles-fair-culture", "note": "FAIR as a stewardship habit."},
+        {"moduleId": "mdm-golden", "note": "Survivorship, attribute by attribute."},
+        {"moduleId": "mdm-match-merge", "note": "Thresholds, false positives, unmerge."},
+        {"moduleId": "mdm-hierarchy", "note": "Rollups that do not rewrite history."}
+      ]
+    },
+    {
+      "id": "governance-lead",
+      "title": "Governance lead",
+      "audience": "People standing up decision rights, a council, or a stewardship rhythm",
+      "summary": "Policies, forums, metrics, risk translation, and the day-2 MDM operation a sponsor will ask you to show.",
+      "outcome": "You can charter a thin governance system, map a principle to a control, and run a queue that proves the system is alive.",
+      "steps": [
+        {"moduleId": "gov-intro", "note": "What governance is not."},
+        {"moduleId": "gov-decision-rights", "note": "Accountability that can say no."},
+        {"moduleId": "gov-policies", "note": "Policy, standard, procedure."},
+        {"moduleId": "gov-councils", "note": "A forum that decides."},
+        {"moduleId": "gov-metrics", "note": "Leading, lagging, and metric theater."},
+        {"moduleId": "gov-risk", "note": "Principles become controls. Not legal advice."},
+        {"moduleId": "roles-council-cdo", "note": "Sponsor, lead, and domain owners."},
+        {"moduleId": "roles-raci", "note": "Publish the matrix where the request happens."},
+        {"moduleId": "qm-measure", "note": "Quality trends the council can fund."},
+        {"moduleId": "mdm-ops", "note": "Queues, aging, and rule changes."},
+        {"moduleId": "lc-archive-destroy", "note": "Retention as an operating control."},
+        {"moduleId": "dama-security", "note": "What the council is asking security to implement."}
+      ]
+    }
+  ]
+}

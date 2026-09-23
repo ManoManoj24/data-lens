@@ -1,43 +1,41 @@
 import type { Metadata } from "next";
-import { Fraunces, Outfit } from "next/font/google";
+import { Newsreader, Source_Sans_3 } from "next/font/google";
+import { ProgressProvider } from "@/components/ProgressProvider";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { siteTitle, tagline } from "@/lib/content";
-import { ProgressProvider } from "@/lib/progress";
+import { getCurriculum } from "@/lib/curriculum";
 import "./globals.css";
 
-const outfit = Outfit({
+const serif = Newsreader({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-serif",
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const sans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-sans",
   display: "swap",
 });
+
+const curriculum = getCurriculum();
 
 export const metadata: Metadata = {
   title: {
-    default: siteTitle,
-    template: `%s · ${siteTitle}`,
+    default: `${curriculum.siteTitle} — data, from start to end`,
+    template: `%s · ${curriculum.siteTitle}`,
   },
-  description: tagline,
+  description: curriculum.tagline,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${fraunces.variable}`}>
-      <body className="min-h-screen antialiased">
+    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+      <body className="font-sans text-ink antialiased">
+        <a className="skip" href="#content">
+          Skip to content
+        </a>
         <ProgressProvider>
-          <a className="skip-link" href="#content">
-            Skip to content
-          </a>
           <SiteHeader />
           <main id="content">{children}</main>
           <SiteFooter />

@@ -240,38 +240,6 @@
     {
       "term": "Data Product",
       "definition": "A curated, documented, and governed data asset packaged for specific consumers with clear ownership and SLAs."
-    },
-    {
-      "term": "Match threshold",
-      "definition": "A score boundary that separates automatic links, steward review, and non-matches when comparing records."
-    },
-    {
-      "term": "False positive match",
-      "definition": "A match that treats two different real-world entities as the same one, often from a weak shared clue such as a household phone."
-    },
-    {
-      "term": "Unmerge",
-      "definition": "The controlled reversal of a merge, restoring distinct identities and notifying consumers that relied on the combined record."
-    },
-    {
-      "term": "Crosswalk",
-      "definition": "The stored mapping from a golden record back to the source systems and keys that contributed to it."
-    },
-    {
-      "term": "Hierarchy",
-      "definition": "A governed parent-child structure among master entities, such as SKU to style to class, used for rollup and accountability."
-    },
-    {
-      "term": "Effective dating",
-      "definition": "Recording when a value or relationship starts and ends so history stays true after a change."
-    },
-    {
-      "term": "System of record",
-      "definition": "The designated authoritative system for a domain. Other copies are downstream, not competing sources of truth."
-    },
-    {
-      "term": "Stewardship queue",
-      "definition": "The operational list of exceptions—match proposals, validation failures, change requests—that stewards work to a service level."
     }
   ]
 }
