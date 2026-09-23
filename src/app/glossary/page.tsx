@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { GlossaryBrowser } from "@/components/GlossaryBrowser";
-import { terms } from "@/lib/content";
+import { getGlossary, slugTerm } from "@/lib/curriculum";
 
-export const metadata: Metadata = {
-  title: "Glossary",
-  description: "Short definitions for the terms used in Data Lens lessons.",
-};
+export const metadata: Metadata = { title: "Glossary" };
 
 export default function GlossaryPage() {
+  const terms = getGlossary();
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <p className="eyebrow">Reference</p>
-      <h1 className="display mt-2 text-4xl sm:text-5xl">Glossary</h1>
-      <p className="lead mt-4">
-        {terms.length} short definitions for the terms used in the lessons. Search, or jump by
-        letter.
+    <div className="mx-auto max-w-page px-5 py-12 md:px-8">
+      <p className="text-xs uppercase tracking-[0.18em] text-accent">Reference</p>
+      <h1 className="mt-3 font-serif text-5xl md:text-6xl">Glossary</h1>
+      <p className="mt-4 max-w-3xl text-lg text-ink-soft">
+        Short working definitions for the language the lessons use. They are starting points, not a standard’s official text.
       </p>
-      <div className="mt-8">
-        <GlossaryBrowser />
-      </div>
+      <ul className="mt-8 grid gap-3">
+        {terms.map((term) => (
+          <li key={term.term} id={slugTerm(term.term)} className="scroll-mt-24 rounded-2xl border border-line bg-[color:var(--paper-raised)] px-4 py-3">
+            <h2 className="font-serif text-2xl">{term.term}</h2>
+            <p className="text-ink-soft">{term.definition}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

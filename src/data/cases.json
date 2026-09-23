@@ -1,0 +1,165 @@
+{
+  "cases": [
+    {
+      "id": "retail-pim",
+      "title": "Retail PIM: the Harbor Beanie",
+      "kicker": "Product content",
+      "summary": "A seasonal hat moves from line sheet to certified publish to retirement. The case shows where a product master is created, enriched, shared, and archived—and which defects block the path.",
+      "minutes": 12,
+      "domains": ["Product", "PIM", "Lifecycle"],
+      "sections": [
+        {
+          "id": "line-sheet",
+          "kicker": "Create",
+          "title": "The line sheet is not the master",
+          "body": "Northline’s design team closes the autumn line with a spreadsheet: style name Harbor Beanie, working color “charcol,” fiber note “merino,” target price 48, sizes one size and S–XL depending on who typed the row. The sheet is how the idea travels. It is not a system of record.\n\nThe PIM steward opens a draft style, NL-HAT-204, and treats the sheet as a source document. Color must be chosen from the reference list, so Charcoal replaces the typo. Fiber cannot be a vibe; the mill file is requested before certification. Size is modeled as SKUs under the style, not as a comma-separated cell. Images go to the content system and are linked by style id.\n\nWhat the learner should notice: creation is a translation from informal content into governed master data, not a file upload.",
+          "callout": {
+            "label": "Quality risk",
+            "text": "If the spreadsheet remains editable, next week’s price argument will cite it instead of the PIM."
+          },
+          "lessons": ["lc-create", "mdm-master", "dama-content"]
+        },
+        {
+          "id": "enrich",
+          "kicker": "Use",
+          "title": "Enrichment has a gate",
+          "body": "Enrichment adds the care statement, the size chart, and the mill’s “100% merino wool,” citing PDF version 3. A price rule sets the seasonal price. The certification checklist is short on purpose: name, size run, reference color, fiber percentage, care, price. Cost stays off the list because it is a different classification and must not ride along to a marketplace.\n\nThe first certification attempt fails. Care text is empty. The style remains draft. That failure is the control working. A downstream cleanse of the web database would have hidden the miss and left the next style just as empty.\n\nThe product owner does not personally type the care copy. The owner is accountable for the blocking list. The steward completes it. The custodian maintains the workflow that enforces it.",
+          "callout": {
+            "label": "Checkpoint",
+            "text": "A style is not “done” when it has a photo. It is done when blocking attributes pass and the certified flag is the only thing channels can read."
+          },
+          "lessons": ["lc-use", "qm-dimensions", "gov-policies"]
+        },
+        {
+          "id": "publish",
+          "kicker": "Share",
+          "title": "Three consumers, three field lists",
+          "body": "Ecommerce and the stores subscribe to the full certified selling set. The marketplace contract allows title, price, color, fiber, and images—not cost, not the buyer’s name, not internal notes. The feed is versioned. When fiber became blocking, the new major version rejected gaps instead of sending blanks for the partner to interpret.\n\nA week after launch the web shows $48 and one store system still shows $42. Lineage points at a stale cache, not a second edit. The cache job is fixed. Nobody “corrects” the price in the store database by hand, because that would create the rival master the architecture forbids.\n\nSharing is successful when each consumer can name the interface, the freshness, and the fields they are allowed to hold.",
+          "callout": {
+            "label": "Who decides",
+            "text": "The product owner approves a new subscriber. Integration implements the contract. A quiet full-table extract is an incident, not a shortcut."
+          },
+          "lessons": ["lc-share", "dama-integration", "qm-lineage-catalog"]
+        },
+        {
+          "id": "retire",
+          "kicker": "Archive",
+          "title": "Retirement is a status, not a delete",
+          "body": "In February the beanie leaves the assortment. Status becomes Retired. The marketplace feed drops it. The style remains readable with its fiber, its price history, and its place in the headwear hierarchy as that hierarchy looked during the season. Warranty can still answer “what did we sell?”\n\nDraft images and the original line sheet are destroyed after the official archive copy is checked. Those files were transport and exploration. The master is not. Effective dates on the hierarchy mean a March reorganization does not drag January beanie sales into a new division.\n\nThe case closes the way the journey does: end-of-life is selective. Archive the record the business must still explain. Destroy the copies that only add risk.",
+          "callout": {
+            "label": "Evidence",
+            "text": "The archive job logs the rule and the style id. The destruction job logs the drafts it removed. A status change with no log is a rumor."
+          },
+          "lessons": ["lc-archive-destroy", "mdm-hierarchy", "mdm-ops"]
+        }
+      ]
+    },
+    {
+      "id": "customer-mdm",
+      "title": "Customer MDM: two Mayas, one household",
+      "kicker": "Golden record",
+      "summary": "A web signup and a store card look like the same person—until a household phone tries to pull in a sibling. The case walks match thresholds, survivorship, and an unmerge you hope to drill before you need it.",
+      "minutes": 12,
+      "domains": ["Customer", "MDM", "Stewardship"],
+      "sections": [
+        {
+          "id": "two-records",
+          "kicker": "Sources",
+          "title": "Two sources, no golden record yet",
+          "body": "The store has a loyalty card for Maya C. Chen, opened two years ago, identity checked, email maya.c.chen@example.com, phone ending 0144 that the household shares. The website has a new account, Maya Chen, email maya.chen@example.com verified today, ship-to in the same city, consent captured with a timestamp. Orders will soon cite whichever id the channel happens to hold.\n\nIf nobody masters the customer, finance will count two people, marketing will email both addresses, and service will ask Maya to repeat herself. Master data exists so those processes recognize one person. It does not exist so a job can collapse every similar name.",
+          "callout": {
+            "label": "Plan residue",
+            "text": "The loyalty plan already said web and store would both create customers. The match step is late execution of that plan, not a surprise project."
+          },
+          "lessons": ["mdm-master", "lc-plan", "dama-refmdm"]
+        },
+        {
+          "id": "score",
+          "kicker": "Match",
+          "title": "A score is not a decision",
+          "body": "The match job scores the pair at 0.91. Name similarity is high. City matches. Emails differ. The auto-merge threshold is 0.97 because a wrong merge poisons consent and order history. The review floor is 0.80. The pair lands in the steward queue with the clues visible, not pre-collapsed.\n\nThe steward confirms they are the same person using the verified email trail and the store identity check. She does not confirm a second candidate that scores 0.84 against Maya’s brother on the shared phone and the shared last name. That rejection is stored. The same pair must not return tomorrow night as if it were new.\n\nDeterministic keys would have been cleaner. There were none in common. Probabilistic matching is allowed to be unsure.",
+          "callout": {
+            "label": "Weak clue",
+            "text": "Household phone, family address, and company front desk are context, not identity."
+          },
+          "lessons": ["mdm-match-merge", "qm-dimensions", "roles-trio"]
+        },
+        {
+          "id": "survive",
+          "kicker": "Survivorship",
+          "title": "Different attributes trust different sources",
+          "body": "Golden id C-104422 is created. Legal name survives from the store because identity was checked there: Maya C. Chen. Email survives from the web because it was verified today. Consent survives from the web because that is where the timestamp was written. The older store email is retained as history, not as a second official address. Both source keys stay on the crosswalk.\n\nA single rule “store always wins” would have published a stale email. A single rule “web always wins” would have dropped the identity-checked legal name. Survivorship is a list of attribute rules the owner has signed, not a vibe about which system is more modern.\n\nCommerce, service, and the warehouse are told to store C-104422 on new transactions. They are not invited to edit legal name locally.",
+          "callout": {
+            "label": "Explainability",
+            "text": "A steward can answer “why this email?” from the rule and the verification time, without opening three databases."
+          },
+          "lessons": ["mdm-golden", "dama-metadata", "gov-decision-rights"]
+        },
+        {
+          "id": "unmerge",
+          "kicker": "Day 2",
+          "title": "The undo is part of the design",
+          "body": "Months later a steward spots a different merge that did auto-link on a bad rule change: two roommates, one shared address, a threshold someone lowered on a Friday. Unmerge splits the golden record, restores the source identities, and emits a repair event so campaign and order systems stop treating the roommates as one consent. The incident review raises the threshold back and adds an explicit veto on address-only matches.\n\nDay-2 operations are this queue: proposals, rejections, overrides with reason codes, and a monthly look at override rate. The MDM “project” did not end at go-live. The case is done when you can see both the correct Maya merge and the roommate unmerge as normal work, not as heroics.",
+          "callout": {
+            "label": "Metric",
+            "text": "If override rate jumps after a rule edit, the edit is the incident. Aging on the queue tells you whether stewards have the hours the policy assumes."
+          },
+          "lessons": ["mdm-ops", "roles-raci", "gov-metrics"]
+        }
+      ]
+    },
+    {
+      "id": "research-fair",
+      "title": "Research data: FAIR readiness",
+      "kicker": "Reuse",
+      "summary": "A textile-durability study wants to be reusable without publishing Northline’s customer data. Walk Findable, Accessible, Interoperable, and Reusable as concrete gaps, not as a sticker.",
+      "minutes": 10,
+      "domains": ["FAIR", "Research", "Metadata"],
+      "fairChecks": [
+        {"id": "f-id", "principle": "Findable", "label": "The dataset has a persistent identifier (such as a DOI), not only a file name like final_v7.csv."},
+        {"id": "f-meta", "principle": "Findable", "label": "A metadata record describes title, authors, methods, units, and dates, and it is indexed where a peer would search."},
+        {"id": "a-protocol", "principle": "Accessible", "label": "Retrieval uses a standard repository protocol, documented in the record."},
+        {"id": "a-auth", "principle": "Accessible", "label": "Restricted companion files, if any, use authentication—and the metadata remains readable even when the files are not."},
+        {"id": "i-vocab", "principle": "Interoperable", "label": "Test types and units use a shared vocabulary or an explicit mapping, not lab slang alone."},
+        {"id": "i-refs", "principle": "Interoperable", "label": "References to related materials (the method paper, the instrument) are qualified and resolvable."},
+        {"id": "r-license", "principle": "Reusable", "label": "A license or usage rule is attached, and someone qualified has actually looked at it."},
+        {"id": "r-prov", "principle": "Reusable", "label": "Provenance states how measurements were produced, what was excluded, and the known limits."}
+      ],
+      "sections": [
+        {
+          "id": "question",
+          "kicker": "Envision",
+          "title": "The question comes before the deposit",
+          "body": "A university lab, with Northline as an industry partner, measures how the Harbor Beanie’s merino knit wears under repeated abrasion. NIST RDaF would call the opening Envision and Plan: what question, what data, what must never leave the building. The public dataset will contain specimen ids, test conditions, cycles-to-failure, and units. It will not contain Maya Chen, loyalty ids, or which customers bought the hat.\n\nThat exclusion is a planning decision. FAIR does not require you to publish everything you have. It requires you to make the data you do publish findable and honest. The customer master stays on its own lifecycle, with its own retention, inside the company.",
+          "callout": {
+            "label": "Boundary",
+            "text": "Write the out-of-scope list in the data plan: no personal data, no cost prices, no unpublished designs."
+          },
+          "lessons": ["lc-plan", "lc-compare", "gov-risk"]
+        },
+        {
+          "id": "gaps",
+          "kicker": "Gaps",
+          "title": "What “not FAIR yet” looks like",
+          "body": "On day one the measurements live in final_v7.csv. Units are in a slide. Column test_cd uses lab slang. There is no license and no DOI. A colleague can use the file only by asking in chat, which means neither a human stranger nor a machine can reuse it safely.\n\nFindable fails without an identifier and indexed metadata. Accessible fails if the only retrieval path is “email the postdoc.” Interoperable fails while test_cd is undefined. Reusable fails with no license and no provenance—the numbers might be fine and still be unusable because nobody knows the instrument, the pretreatment, or whether failed runs were dropped.\n\nThe checklist on this page is the remediation list. Tick it only when the artifact exists, not when the team intends to create it.",
+          "callout": {
+            "label": "Proportionality",
+            "text": "Internal fiber attributes at Northline can borrow the same provenance habit without pretending the PIM is an open repository."
+          },
+          "lessons": ["qm-fair-depth", "roles-fair-culture", "qm-metadata-types"]
+        },
+        {
+          "id": "deposit",
+          "kicker": "Share",
+          "title": "A deposit that a stranger can trust",
+          "body": "The lab mints a DOI. The metadata record states methods, abrasion cycles, temperature, and the controlled term for the test type, mapped from test_cd. The repository’s protocol is the access path. A separate restricted appendix, if counsel and the partnership agreement allow it, is behind authentication; the public metadata still explains that the appendix exists and why it is closed.\n\nThe license is chosen deliberately and reviewed, not pasted from memory. Provenance says which instrument, which operator role, which runs were excluded as mis-calibration, and that customer-level sales were never in the file. A Northline materials steward can later cite the DOI from the style record’s test history.\n\nReuse is the point. A second lab should be able to decide whether the numbers apply to their knit without writing to the authors for the unit of measure.",
+          "callout": {
+            "label": "Not a certificate",
+            "text": "FAIR is a set of principles. Closing the gaps is the work. A badge without metadata is a filename with confidence."
+          },
+          "lessons": ["lc-share", "qm-lineage-catalog", "dama-metadata"]
+        }
+      ]
+    }
+  ]
+}

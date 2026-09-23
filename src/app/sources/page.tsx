@@ -1,106 +1,61 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { bibliography, bibliographyIntro, nonUseNotes } from "@/data/bibliography";
-import { citations } from "@/lib/content";
+import { getAllModules } from "@/lib/curriculum";
 
-export const metadata: Metadata = {
-  title: "Sources",
-  description: "Annotated bibliography and lesson citations for Data Lens.",
-};
+export const metadata: Metadata = { title: "Sources" };
 
 export default function SourcesPage() {
-  const used = citations();
+  const map = new Map<string, string>();
+  getAllModules().forEach(({ module }) => {
+    module.sources.forEach((source) => map.set(source.url, source.title));
+  });
+  const sources = Array.from(map.entries()).sort((a, b) => a[1].localeCompare(b[1]));
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <p className="eyebrow">Bibliography</p>
-      <h1 className="display mt-2 text-4xl sm:text-5xl">Sources</h1>
-      <p className="lead mt-4">{bibliographyIntro}</p>
-      <p className="mt-4 rounded-2xl border border-gold/40 bg-[#f8f1e2] px-4 py-3 text-sm leading-6">
-        Not legal advice. Governance and GDPR modules are educational overviews. Implementers
-        should consult qualified counsel and security professionals for their jurisdiction and
-        industry.
+    <div className="mx-auto max-w-page px-5 py-12 md:px-8">
+      <p className="text-xs uppercase tracking-[0.18em] text-accent">Bibliography</p>
+      <h1 className="mt-3 font-serif text-5xl md:text-6xl">Sources</h1>
+      <p className="mt-4 max-w-3xl text-lg text-ink-soft">
+        Public pages consulted while writing original Data Lens lessons. Citations are title plus URL. This site does not
+        reproduce book chapters or membership-only framework text.
       </p>
-
-      <div className="mt-10 space-y-10">
+      <ul className="mt-8 grid gap-3">
+        {sources.map(([url, title]) => (
+          <li key={url} className="rounded-2xl border border-line px-4 py-3">
+            <a href={url} className="text-accent">
+              {title}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-12 grid gap-8">
+        <p className="max-w-3xl text-ink-soft">{bibliographyIntro}</p>
         {bibliography.map((section) => (
-          <section key={section.id} aria-labelledby={section.id}>
-            <h2 id={section.id} className="display text-3xl">
-              {section.title}
-            </h2>
-            <ol className="mt-4 space-y-4">
+          <section key={section.id}>
+            <h2 className="font-serif text-3xl">{section.title}</h2>
+            <ul className="mt-3 grid gap-3">
               {section.items.map((item) => (
-                <li key={item.title} className="panel p-4">
-                  <h3 className="font-bold">{item.title}</h3>
-                  <ul className="mt-2 space-y-1">
-                    {item.urls.map((url) => (
-                      <li key={url.href}>
-                        <a
-                          href={url.href}
-                          className="text-sm font-semibold text-lens-deep underline underline-offset-4"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {url.label ?? url.href}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-2 text-sm leading-6 text-ink-soft">{item.note}</p>
+                <li key={item.title} className="rounded-2xl border border-line px-4 py-3">
+                  <a href={item.urls[0]?.href} className="text-accent">
+                    {item.title}
+                  </a>
+                  <p className="mt-1 text-sm text-ink-soft">{item.note}</p>
                 </li>
               ))}
-            </ol>
+            </ul>
           </section>
         ))}
+        <section>
+          <h2 className="font-serif text-3xl">What was not copied</h2>
+          <ul className="mt-3 grid gap-2 text-sm text-ink-soft">
+            {nonUseNotes.map((note) => (
+              <li key={note} className="rounded-2xl border border-line px-4 py-3">
+                {note}
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
-
-      <section className="mt-12" aria-labelledby="non-use">
-        <h2 id="non-use" className="display text-3xl">
-          Notes on intentional non-use
-        </h2>
-        <ul className="mt-4 space-y-3">
-          {nonUseNotes.map((note) => (
-            <li key={note} className="panel p-4 text-sm leading-6">
-              {note}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="mt-12" aria-labelledby="cited-in">
-        <h2 id="cited-in" className="display text-3xl">
-          Cited in lessons
-        </h2>
-        <p className="mt-2 text-sm text-ink-soft">
-          Every source attached to a lesson, with the lessons that cite it.
-        </p>
-        <ul className="mt-4 space-y-4">
-          {used.map((source) => (
-            <li key={source.url} className="panel p-4">
-              <a
-                href={source.url}
-                className="font-bold text-lens-deep underline underline-offset-4"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {source.title}
-              </a>
-              <ul className="mt-2 flex flex-wrap gap-2">
-                {source.lessons.map((lesson) => (
-                  <li key={lesson.href}>
-                    <Link
-                      href={lesson.href}
-                      className="inline-flex rounded-full bg-paper-deep px-3 py-1 text-xs font-semibold"
-                    >
-                      {lesson.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </section>
     </div>
   );
 }

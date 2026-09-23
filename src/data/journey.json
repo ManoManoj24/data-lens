@@ -1,0 +1,123 @@
+{
+  "title": "The Data Journey",
+  "kicker": "Start here",
+  "lede": "Follow one beanie and one customer from the decision to create their data through publish, archive, and destruction. You do not need a master-data background. Each stage says what happens, who decides, what can go wrong, and which lesson goes deeper.",
+  "protagonist": "Northline Outfitters, a mid-size apparel retailer, is launching a seasonal product and serving the person who buys it.",
+  "sku": {
+    "id": "NL-HAT-204",
+    "name": "Harbor Beanie, charcoal",
+    "story": "A merino style that must be described once and sold in several channels without the fiber, color, or price drifting apart."
+  },
+  "customer": {
+    "id": "C-104422",
+    "name": "Maya Chen",
+    "story": "A shopper who signs up on the web and already has a store loyalty card. The company has to decide whether those records are the same person, and what it may keep after she leaves."
+  },
+  "stages": [
+    {
+      "id": "plan",
+      "index": 1,
+      "title": "Plan",
+      "short": "Decide before you collect",
+      "productBeat": "Assortment plan defines the beanie",
+      "customerBeat": "Loyalty purpose and retention are set",
+      "whatHappens": "Nothing is captured yet. The organization writes why the data should exist, which fields are required, who can say no, and when the data must end. This is the cheapest moment to drop a field.",
+      "productDetail": "Merchandising decides NL-HAT-204 will sell on the web and in stores for one season. The style needs a name, size run, a color from the reference list, a fiber percentage, care instructions, and a price before any channel may publish. Internal cost is classified as commercial and is not part of the public attribute set. Draft spreadsheets are not the system of record; the PIM will be. The product master is expected to remain readable for warranty and tax long after the style leaves the site.",
+      "customerDetail": "The loyalty owner defines the purpose as order status and opted-in offers. The form may collect name, email, ship-to, and a consent timestamp. It may not collect income, and it may not store a full payment number in the customer master—that stays in the payments vault. Retention is the life of the account plus 24 months for marketing attributes. Order facts follow the finance clock, which is a different decision. Two sources are expected to create customers (web and store), so the plan already says identity will be matched later rather than hoped into alignment.",
+      "whoOwns": "The merchandising director is accountable for product data. The CRM director is accountable for customer data. Stewards will keep the definitions. Custodians will run the PIM and CRM. The plan names them before the first row exists.",
+      "qualityRisk": "Launching without a required-attribute list, and collecting customer fields nobody can tie to a decision. Both feel small on a form and expensive in a breach or a recall.",
+      "governance": "A one-page data plan is linked from the launch ticket: purpose, non-goals, classification, system of record, retention, and the owner. No tool purchase is required to pass this checkpoint.",
+      "lessons": ["lc-plan", "lc-why", "gov-policies", "roles-trio", "mdm-master"]
+    },
+    {
+      "id": "create",
+      "index": 2,
+      "title": "Create / Acquire",
+      "short": "Bring facts in with context",
+      "productBeat": "Mill sheet and PIM draft",
+      "customerBeat": "Maya signs up; a store card already exists",
+      "whatHappens": "Data crosses the boundary. The standard is enforced here, while the source can still correct it, and context (who sent it, which code list, whether consent was captured) is stored with the values.",
+      "productDetail": "A designer opens a PIM draft for the Harbor Beanie. The mill sends a composition sheet. The acquire job rejects color “charcol” because the reference list only contains Charcoal, and it rejects “wool blend” because fiber must be a percentage. The corrected load stores “100% merino wool,” color Charcoal, and a pointer to mill-file version 3. Studio images are content linked to the style, not a second copy of the fiber fact. The email attachment is deleted after the load receipt is checked.",
+      "customerDetail": "Maya creates a web account. The form stores her consent time and the privacy-notice version beside the email. Country and region must match the reference list. A store loyalty card for “Maya C. Chen” already exists with a different email and a shared household phone. The signup does not auto-merge those records. It creates a source record and lets the later match stage do its job. Payment details go to the vault, and the customer master stores only a token reference.",
+      "whoOwns": "The product steward accepts the mill correction. The customer steward owns the definition of a complete signup. Custodians own the secure transfer path. Owners are accountable if someone wants to waive a required field “just this once.”",
+      "qualityRisk": "Free-text color, a fiber value with no unit, a consent flag with no timestamp, and a premature merge on a household phone.",
+      "governance": "Ingress rules implement the standard: unknown codes and missing required context fail the load. The code-list version is recorded so a later reader knows which Charcoal was in force.",
+      "lessons": ["lc-create", "mdm-reference", "qm-dimensions", "dama-content"]
+    },
+    {
+      "id": "store",
+      "index": 3,
+      "title": "Store / Manage",
+      "short": "Keep custody on purpose",
+      "productBeat": "PIM is the only editable master",
+      "customerBeat": "CRM holds the profile; the vault holds payment",
+      "whatHappens": "The data now has a home. Custody means an approved location, encryption where the class requires it, backups you have actually restored, named access, and the deletion of working copies that were only transport.",
+      "productDetail": "The PIM is the system of record for NL-HAT-204. Channel databases may cache a certified export; they may not invent a price. A buyer’s desktop file still says $42 from last week. It is deleted, and the shared folder that invited edits is closed. PIM backups are restored in a quarterly drill, including the price history. Access to edit fiber and price is a named merchandising role, not a shared admin password.",
+      "customerDetail": "The CRM stores Maya’s profile with encryption at rest. Support can see email; warehouse planning cannot. The payments vault is a different store with a different custodian and a tighter class. Analytics may receive a classified copy later; that copy is not a second place to edit consent. Access is reviewed when the seasonal contractor’s campaign ends.",
+      "whoOwns": "Owners set classification and who may edit. Stewards notice when a shadow copy is being treated as truth. Custodians implement encryption, backup, restore tests, and the access mechanics.",
+      "qualityRisk": "A spreadsheet becomes the price people believe, or a working extract of customers remains on a laptop after the load.",
+      "governance": "The architecture blueprint already named the systems of record. This checkpoint asks for evidence: restore-test date, access model, and confirmation that rival edit paths are closed.",
+      "lessons": ["lc-store", "dama-storage", "dama-security", "dama-arch"]
+    },
+    {
+      "id": "use",
+      "index": 4,
+      "title": "Use / Process",
+      "short": "Decide without losing the trail",
+      "productBeat": "Enrichment, price rules, reorder math",
+      "customerBeat": "Match proposal waits for a steward",
+      "whatHappens": "People transform data into something a decision can lean on. Pipelines are versioned. Quality rules block certification. Identity conflicts are not averaged away. New uses still have to fit the purpose written in the plan.",
+      "productDetail": "A workflow enriches the beanie with a size chart and care icons. Price rules set $48 for the season. The certification check refuses to mark the style ready because, in this pass, care text is still empty—fiber and color already passed. Merchandising’s reorder question joins certified attributes to sales and documents the filter (first four weeks, web and stores). An analyst’s private notebook can explore, but it is labeled sandbox and cannot be quoted as the official size curve.",
+      "customerDetail": "A match job scores the web profile against the store card at 0.91, under the auto threshold of 0.97 and above the review floor of 0.80. The steward sees a shared city, a close name, and different emails, and confirms they are the same person. Survivorship takes the identity-checked legal name from the store, the freshly verified email from the web, and keeps both source keys on golden id C-104422. A later proposal that matches Maya to her brother on household phone alone is rejected and the rejection is remembered. Purchase history is not repurposed for an unrelated model without a new decision.",
+      "whoOwns": "The product steward certifies attributes. The customer steward decides gray-band matches under a policy the owner approved. Analysts are responsible for reproducible jobs. Owners remain accountable for purpose and for survivorship policy.",
+      "qualityRisk": "Publishing an incomplete style, auto-merging two relatives, or quoting a sandbox metric in the board pack.",
+      "governance": "Survivorship and match thresholds are written rules, not vendor defaults. Purpose limitation is checked when someone asks to reuse the profile. Overrides store a reason code.",
+      "lessons": ["lc-use", "mdm-golden", "mdm-match-merge", "qm-measure"]
+    },
+    {
+      "id": "share",
+      "index": 5,
+      "title": "Share",
+      "short": "Grant access on purpose",
+      "productBeat": "Certified feed to web, stores, and a marketplace",
+      "customerBeat": "Order service gets ship-to; marketing gets consenting email only",
+      "whatHappens": "Sharing is a field list, a consumer, a purpose, and a clock. Interfaces are versioned. Least privilege is the default. A feed of uncertified product data is not transparency; it is publishing a defect.",
+      "productDetail": "Ecommerce and point of sale subscribe to the certified product feed. The marketplace receives title, public price, Charcoal, and fiber. It does not receive cost or the mill contact. When fiber became mandatory, the feed’s major version started rejecting styles that lack it, with a short window on the previous version. Lineage shows the web price tracing back to the PIM row, so a mismatch is a rule bug, not a mystery.",
+      "customerDetail": "The order service receives ship-to and email for fulfillment, which fits the original purpose. Marketing can select Maya only because consent is true, and the segment job cannot see payment tokens. A seasonal contractor’s access expires the week the campaign ends. Nobody emails a full customer extract “just in case.”",
+      "whoOwns": "Domain owners approve the field list for each consumer. Integration custodians run the contract. Stewards confirm the data is certified before a new subscriber is added. The council steps in only if two owners disagree about a shared feed.",
+      "qualityRisk": "A stale price on one channel, or a marketplace that received cost and personal data because the extract was the whole table.",
+      "governance": "Each share has a consumer, a purpose, and a schema version. Grants are named and expiring. The quality gate can block the publish.",
+      "lessons": ["lc-share", "dama-integration", "gov-decision-rights", "dama-security"]
+    },
+    {
+      "id": "archive",
+      "index": 6,
+      "title": "Archive",
+      "short": "Keep what still has a reason",
+      "productBeat": "Retired from sale, readable for warranty",
+      "customerBeat": "Account closes; orders stay on the finance clock",
+      "whatHappens": "Archive is not “old.” It is a decision that a specific set of data remains readable, with metadata, because warranty, science, tax, or a stated business need still exists. The live edit path closes. History does not get rewritten when hierarchies move.",
+      "productDetail": "The season ends. NL-HAT-204’s status becomes Retired. It leaves the marketplace feed. The style record, fiber, and the history of published prices move to an archive partition in a durable format, still tied to style id and to the headwear hierarchy version that was effective during the season. Warranty claims can still resolve the SKU. New seasons cannot edit it back onto the site without an explicit reactivation.",
+      "customerDetail": "Maya closes her account. The profile is marked inactive. Marketing attributes are queued for destruction on their own clock, not archived forever by accident. Order lines, which cite C-104422 and NL-HAT-204, stay under the finance retention schedule so a return or a tax question can still be answered. A legal hold would stop this fork; there is no hold.",
+      "whoOwns": "Owners confirm that the retention schedule still matches the data class. Stewards check that metadata and identifiers survived the move. Custodians run the archive job and close live edit rights. Finance is consulted on the order-fact clock.",
+      "qualityRisk": "An archive format only one retired tool can open, or a broken link between historical orders and a retired SKU so warranty cannot tell what was sold.",
+      "governance": "The retention schedule is applied per class. Archive metadata includes the owner, the rule, and the hold flag. Hierarchy effective dates keep last season’s rollup stable.",
+      "lessons": ["lc-archive-destroy", "qm-metadata-types", "mdm-hierarchy", "dama-content"]
+    },
+    {
+      "id": "destroy",
+      "index": 7,
+      "title": "Destroy",
+      "short": "Remove what must not linger",
+      "productBeat": "Drafts and expired copies go; the archive clock is separate",
+      "customerBeat": "Marketing profile is destroyed and logged",
+      "whatHappens": "Destruction is selective and evidenced. It covers the copies the policy names, not only the row that is easiest to delete. Archive and destroy often happen in the same month to different slices of the same story.",
+      "productDetail": "Superseded studio selects and the buyer’s draft workbook are destroyed once the archive copy of the official image set is verified. The archived product master is not destroyed yet; its warranty and tax clock is still running. A partner feed that kept refreshing the retired SKU is turned off so the marketplace is not holding a shadow master. The destruction log records the rule, the scope, the actor, and the time.",
+      "customerDetail": "When the marketing clock ends, Maya’s email, consent record, and offer history are destroyed in the customer master and in the campaign tool that subscribed to them. Payment tokens were already destroyed at account closure inside the vault. Order facts remain until the finance clock ends, then follow their own job. Backups age out according to the backup policy rather than being kept as a secret copy of the profile. The log is what the privacy office can later ask to see.",
+      "whoOwns": "The owner approves exceptions and holds. The steward confirms scope (which attributes, which consumers). The custodian executes deletion across primary stores and known copies. The CDO is informed of the control, not asked to click delete.",
+      "qualityRisk": "Destroying the only copy of a record that is on hold, or deleting the master and forgetting the extract, the laptop, and the partner feed.",
+      "governance": "A destruction log is the evidence. Holds override the job. The RACI for “retire or destroy” is the same shape you practice in the lab: one accountable owner, a responsible steward, a consulted custodian.",
+      "lessons": ["lc-archive-destroy", "gov-risk", "roles-raci", "mdm-ops"]
+    }
+  ]
+}

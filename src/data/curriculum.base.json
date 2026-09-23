@@ -1,0 +1,1501 @@
+{
+  "siteTitle": "Data Lens",
+  "tagline": "See the full picture of data management, governance, and lifecycle—original lessons for visual learners.",
+  "tracks": [
+    {
+      "id": "lifecycle",
+      "title": "Data Lifecycle",
+      "modules": [
+        {
+          "id": "lc-why",
+          "title": "Why Lifecycle Thinking Matters",
+          "summary": "Data is not a one-time deliverable. Treating it as a living asset—from first idea to safe disposal—reduces surprises, wasted storage, and trust problems.",
+          "keyPoints": [
+            "A lifecycle shows stages data typically passes through and what good practice looks like at each stage.",
+            "Real projects are rarely strictly linear: stages can loop, skip, or run in parallel.",
+            "Planning early for retention, access, and deletion is cheaper than fixing chaos later.",
+            "Cross-cutting concerns (quality, security, metadata) apply at every stage, not only at the end.",
+            "Comparing public models helps you pick language that fits research, enterprise, or mixed contexts."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "Which statement best describes a data lifecycle?",
+              "choices": [
+                "A fixed vendor product license term",
+                "A conceptual map of how data moves from planning through use and end-of-life",
+                "A database backup schedule only",
+                "A GDPR fine calculator"
+              ],
+              "answerIndex": 1,
+              "explain": "Lifecycle models are teaching and planning tools for stages and responsibilities—not a single software product."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Introduction to the Data Lifecycle – UW–Madison",
+              "url": "https://data.wisc.edu/data-literacy/lifecycle/"
+            },
+            {
+              "title": "NIST Research Data Framework (RDaF)",
+              "url": "https://www.nist.gov/programs-projects/research-data-framework-rdaf"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            }
+          ]
+        },
+        {
+          "id": "lc-compare",
+          "title": "Comparing Three Public Lifecycle Models",
+          "summary": "UW–Madison style training, NIST RDaF, and USGS SDL emphasize similar ideas with different stage names. Learn the overlaps so you can translate across teams.",
+          "keyPoints": [
+            "UW-oriented teaching often highlights Plan, Create, Manage, Use, Share, Collect/Reuse, and Destroy, with continuous management actions.",
+            "NIST RDaF organizes research data work into six cyclical stages: Envision, Plan, Generate/Acquire, Process/Analyze, Share/Use/Reuse, Preserve/Discard.",
+            "USGS Science Data Lifecycle Model uses Plan, Acquire, Process, Analyze, Preserve, and Publish/Share, plus cross-cuts: Describe, Manage Quality, Backup & Secure.",
+            "Harvard’s privacy-oriented guide stresses Plan → Create/Collect → Store → Use → Share → Archive/Destroy with security and minimization baked in.",
+            "Names differ; intent is shared: plan before you collect, document as you go, share responsibly, and retire data on purpose."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "Which set matches NIST RDaF’s six high-level stages?",
+              "choices": [
+                "Ingest, Transform, Load, Report, Alert, Patch",
+                "Envision, Plan, Generate/Acquire, Process/Analyze, Share/Use/Reuse, Preserve/Discard",
+                "Only Backup and Restore",
+                "Sprint, Retro, Demo"
+              ],
+              "answerIndex": 1,
+              "explain": "NIST RDaF Version 2.0 documents those six research-data lifecycle stages as its organizing structure."
+            }
+          ],
+          "sources": [
+            {
+              "title": "NIST Research Data Framework (RDaF)",
+              "url": "https://www.nist.gov/programs-projects/research-data-framework-rdaf"
+            },
+            {
+              "title": "Introduction to the Data Lifecycle – UW–Madison",
+              "url": "https://data.wisc.edu/data-literacy/lifecycle/"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            },
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "USGS Science Data Lifecycle Model (OFR 2013–1265)",
+              "url": "https://pubs.usgs.gov/of/2013/1265/"
+            }
+          ]
+        },
+        {
+          "id": "lc-unified",
+          "title": "A Learner-Friendly 7-Stage Model",
+          "summary": "Data Lens uses one simple spine for teaching: Plan → Create/Acquire → Store/Manage → Use/Process → Share → Archive → Destroy, with quality, security, and metadata as cross-cuts.",
+          "keyPoints": [
+            "Plan: decide purpose, roles, classification, retention, and success measures before data arrives.",
+            "Create/Acquire: generate or collect data with consent, agreements, and capture standards in mind.",
+            "Store/Manage: place data in appropriate systems with backups, access control, and operational care.",
+            "Use/Process: transform, analyze, and interpret while preserving traceability of changes.",
+            "Share: publish or grant access under clear rules, licenses, and need-to-know limits.",
+            "Archive: keep what must persist for legal, scientific, or business value in durable form.",
+            "Destroy: securely delete what is no longer needed according to retention schedules.",
+            "Cross-cuts run through all stages: data quality, security/privacy, and metadata/lineage."
+          ],
+          "visualHint": "wheel",
+          "quiz": [
+            {
+              "q": "In the Data Lens 7-stage model, which activities are treated as cross-cuts?",
+              "choices": [
+                "Only Share and Destroy",
+                "Quality, security/privacy, and metadata/lineage",
+                "Only spreadsheet formatting",
+                "Hiring freelancers"
+              ],
+              "answerIndex": 1,
+              "explain": "Cross-cuts are ongoing disciplines that apply at every stage rather than single destination steps."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Introduction to the Data Lifecycle – UW–Madison",
+              "url": "https://data.wisc.edu/data-literacy/lifecycle/"
+            },
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            },
+            {
+              "title": "NIST Research Data Framework (RDaF)",
+              "url": "https://www.nist.gov/programs-projects/research-data-framework-rdaf"
+            }
+          ]
+        },
+        {
+          "id": "lc-plan",
+          "title": "Stage: Plan",
+          "summary": "Planning is where you set purpose, roles, classification, formats, storage choices, sharing rules, and end-of-life expectations before collection begins.",
+          "keyPoints": [
+            "Write a short data management plan: what you will collect, why, who decides, and how long you keep it.",
+            "Name a data owner (or equivalent decision-maker) early.",
+            "Classify sensitivity and minimize collection to what the purpose requires.",
+            "Anticipate sharing, reuse, and repository choices so formats stay usable.",
+            "Align with retention schedules and any contractual data-use terms."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "Why define a data owner during planning?",
+              "choices": [
+                "So nobody else can open a spreadsheet",
+                "To clarify who is accountable for decisions about access, retention, and stewardship",
+                "Because owners write all SQL by hand",
+                "Owners replace backups"
+              ],
+              "answerIndex": 1,
+              "explain": "Ownership is about decision accountability, not typing every row."
+            }
+          ],
+          "sources": [
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "Introduction to the Data Lifecycle – UW–Madison",
+              "url": "https://data.wisc.edu/data-literacy/lifecycle/"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            }
+          ]
+        },
+        {
+          "id": "lc-create",
+          "title": "Stage: Create / Acquire",
+          "summary": "Creation and acquisition are where raw data enters the organization—through sensors, forms, purchases, partners, or computation.",
+          "keyPoints": [
+            "Prefer approved, secure transfer paths (encryption in transit where appropriate).",
+            "Honor data-use agreements and transparency expectations when collecting personal data.",
+            "Capture essential context at the source: units, timestamps, codes, and collection method.",
+            "Apply templates and standards so later integration is not a scavenger hunt.",
+            "Avoid creating unnecessary copies you forget to protect or delete."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "A practical create/acquire habit is to:",
+              "choices": [
+                "Collect every field ‘just in case’ forever",
+                "Capture purpose-needed data with enough context and agreement terms to use it safely later",
+                "Skip encryption because files are small",
+                "Rename columns randomly each week"
+              ],
+              "answerIndex": 1,
+              "explain": "Minimization plus documented context and agreements reduces risk and rework."
+            }
+          ],
+          "sources": [
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            },
+            {
+              "title": "NIST Research Data Framework (RDaF)",
+              "url": "https://www.nist.gov/programs-projects/research-data-framework-rdaf"
+            }
+          ]
+        },
+        {
+          "id": "lc-store",
+          "title": "Stage: Store / Manage",
+          "summary": "Storage is not just disk space. It is ongoing care: location choice, encryption at rest, backups, access control, and operational monitoring.",
+          "keyPoints": [
+            "Store data only in locations approved for its classification level.",
+            "Encrypt sensitive data at rest when policy requires it and keep keys managed.",
+            "Back up intentionally and test restores; backups are part of lifecycle, not optional extras.",
+            "Delete throwaway working copies after import or transformation.",
+            "IT custodians often implement these controls while owners and stewards set requirements."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Which store/manage practice reduces lingering risk after a transfer?",
+              "choices": [
+                "Keeping every temporary copy forever",
+                "Removing unnecessary working copies once the authoritative store is updated",
+                "Emailing production databases as attachments weekly",
+                "Turning off access logs"
+              ],
+              "answerIndex": 1,
+              "explain": "Extra copies expand the attack and compliance surface; clean up when done."
+            }
+          ],
+          "sources": [
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            }
+          ]
+        },
+        {
+          "id": "lc-use",
+          "title": "Stage: Use / Process",
+          "summary": "Use and process cover cleaning, transforming, analyzing, modeling, and interpreting data to create insight—while keeping the trail understandable.",
+          "keyPoints": [
+            "Document transformations so others can reproduce or audit results.",
+            "Use platforms with controls matching the data’s sensitivity.",
+            "Limit processing to stated purposes, especially for personal data.",
+            "Prefer reproducible workflows and versioned pipelines over one-off desktop magic.",
+            "Quality checks during processing catch issues before they become trusted metrics."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "Why document processing steps?",
+              "choices": [
+                "Documentation slows AI forever",
+                "So future users can understand lineage, reproduce work, and trust results",
+                "Laws ban undocumented charts",
+                "Only auditors read notebooks"
+              ],
+              "answerIndex": 1,
+              "explain": "Traceable processing builds trust and supports reuse and audits."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Introduction to the Data Lifecycle – UW–Madison",
+              "url": "https://data.wisc.edu/data-literacy/lifecycle/"
+            },
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "NIST Research Data Framework (RDaF)",
+              "url": "https://www.nist.gov/programs-projects/research-data-framework-rdaf"
+            }
+          ]
+        },
+        {
+          "id": "lc-share",
+          "title": "Stage: Share",
+          "summary": "Sharing ranges from giving a teammate access to publishing open research data. Good sharing is intentional: right people, right terms, right protections.",
+          "keyPoints": [
+            "Authenticate individuals; avoid shared passwords and uncontrolled public links for sensitive data.",
+            "Grant least privilege and revoke access when need ends.",
+            "For research or open data, use clear licenses, DOIs or persistent IDs where appropriate, and good metadata.",
+            "Curation (selection, documentation, packaging) makes reuse safer and more valuable.",
+            "Sensitive data may require repositories with controlled access rather than full open release."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "A least-privilege sharing practice is to:",
+              "choices": [
+                "Make every collaborator a full admin",
+                "Give named people only the access their role requires, then revoke when finished",
+                "Post credentials in a wiki",
+                "Disable authentication for convenience"
+              ],
+              "answerIndex": 1,
+              "explain": "Named, limited, time-bounded access is a core sharing control."
+            }
+          ],
+          "sources": [
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            },
+            {
+              "title": "FAIR Guiding Principles – GO FAIR Foundation",
+              "url": "https://www.go-fair.org/fair-principles/"
+            }
+          ]
+        },
+        {
+          "id": "lc-archive-destroy",
+          "title": "Stages: Archive and Destroy",
+          "summary": "End-of-life is a decision, not an accident. Archive what must persist; destroy what must not linger. Both need procedures and evidence.",
+          "keyPoints": [
+            "Follow retention schedules and contractual timelines—keep no longer than necessary for the purpose.",
+            "Archiving means durable storage, readable formats, and metadata so future people can find and interpret the data.",
+            "Destruction means secure deletion across primary stores, copies, and relevant backups per policy.",
+            "Preserve/Discard in NIST RDaF and Archive/Destroy in privacy guides cover the same end-of-use idea.",
+            "Record what was archived or destroyed, by whom, and under which rule set."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "Archive vs destroy—what is the key difference?",
+              "choices": [
+                "Archive always means public GitHub; destroy means reboot",
+                "Archive keeps selected data for long-term value/compliance; destroy securely removes data that should no longer exist",
+                "They are identical",
+                "Destroy only applies to paper"
+              ],
+              "answerIndex": 1,
+              "explain": "Both are deliberate end-of-use choices with different outcomes and controls."
+            }
+          ],
+          "sources": [
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            },
+            {
+              "title": "NIST Research Data Framework (RDaF)",
+              "url": "https://www.nist.gov/programs-projects/research-data-framework-rdaf"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "governance",
+      "title": "Data Governance",
+      "modules": [
+        {
+          "id": "gov-intro",
+          "title": "What Data Governance Is (and Is Not)",
+          "summary": "Data governance is how an organization decides and oversees rules for data—who decides, what standards apply, and how accountability works. It is not a single tool or a legal department synonym.",
+          "keyPoints": [
+            "Governance sets decision rights, policies, and escalation paths for data as an asset.",
+            "It enables consistent definitions, safer access, and clearer ownership across teams.",
+            "Governance is not the same as day-to-day data engineering, though it directs those practices.",
+            "In DAMA-DMBOK framing, governance sits at the center of related knowledge areas.",
+            "This track is educational overview—not legal advice for any jurisdiction."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Data governance primarily answers which question?",
+              "choices": [
+                "Which GPU to buy this quarter?",
+                "Who decides what about data, under which policies, with what accountability?",
+                "How to hard-code passwords?",
+                "How to minify CSS?"
+              ],
+              "answerIndex": 1,
+              "explain": "Governance focuses on decision rights, policies, and accountability."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "gov-decision-rights",
+          "title": "Decision Rights and Accountability",
+          "summary": "Clear decision rights prevent endless debates. Map which roles approve access, definitions, quality thresholds, retention, and exceptions.",
+          "keyPoints": [
+            "Separate accountability (owns the outcome) from responsibility (does the work).",
+            "Domain owners typically approve policy for their data subjects; stewards operationalize standards.",
+            "Cross-domain conflicts escalate to a governance council or similar body.",
+            "Document decisions so newcomers inherit rules instead of tribal knowledge.",
+            "RACI (Responsible, Accountable, Consulted, Informed) is a practical way to assign rights."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "In a healthy RACI for a data domain, how many Accountable parties should there typically be?",
+              "choices": [
+                "Zero—accountability is optional",
+                "One clear Accountable owner for the outcome",
+                "Everyone on the email list",
+                "Only the database vendor"
+              ],
+              "answerIndex": 1,
+              "explain": "One Accountable party avoids diffusion of ownership."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Data Owners vs Data Stewards vs Data Custodians – DataSunrise",
+              "url": "https://www.datasunrise.com/knowledge-center/data-owners-vs-data-stewards-vs-data-custodians/"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "gov-policies",
+          "title": "Policies, Standards, and Procedures",
+          "summary": "Policies state intent and constraints; standards make them measurable; procedures show how teams comply day to day.",
+          "keyPoints": [
+            "Start with a short policy set: classification, access, quality expectations, retention, and acceptable use.",
+            "Standards define formats, naming, master entities, and metadata required fields.",
+            "Procedures and runbooks translate policy into tickets, reviews, and tool settings.",
+            "Keep policies living documents reviewed on a cadence; stale policy is ignored policy.",
+            "High-level privacy principles (e.g., purpose limitation, minimization) often shape enterprise policy language—always confirm with counsel for your jurisdiction."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "Which pairing is most accurate?",
+              "choices": [
+                "Policy = SQL query; Standard = keyboard shortcut",
+                "Policy = intent/rules; Standard = measurable conventions; Procedure = how to comply",
+                "Procedure replaces all ethics",
+                "Standards ban metadata"
+              ],
+              "answerIndex": 1,
+              "explain": "Layering policy → standard → procedure makes governance actionable."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Art. 5 GDPR – Principles relating to processing of personal data",
+              "url": "https://gdpr.eu/article-5-how-to-process-personal-data/"
+            },
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "The Data Lifecycle – Harvard University Information Security",
+              "url": "https://privsec.harvard.edu/data-lifecycle"
+            }
+          ]
+        },
+        {
+          "id": "gov-councils",
+          "title": "Councils, Operating Models, and Sponsorship",
+          "summary": "Governance needs a forum and an operating rhythm: who meets, what they decide, and how work gets funded.",
+          "keyPoints": [
+            "A data governance council (or equivalent) resolves cross-team standards and priority conflicts.",
+            "Executive sponsorship funds the program and removes blockers.",
+            "Operating models vary: federated stewards with a small center of excellence is common.",
+            "Measure adoption with concrete artifacts: approved glossary terms, access reviews completed, quality SLAs met.",
+            "Start narrow (critical domains) rather than boiling the ocean across all 11 knowledge areas at once."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "A governance council is most useful for:",
+              "choices": [
+                "Replacing all engineers",
+                "Approving enterprise-wide standards and resolving cross-domain conflicts",
+                "Deleting logs randomly",
+                "Setting monitor brightness"
+              ],
+              "answerIndex": 1,
+              "explain": "Councils provide cross-functional decision authority."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            },
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DCAM Framework – EDM Council / EDM Association",
+              "url": "https://edmcouncil.org/frameworks/dcam/"
+            }
+          ]
+        },
+        {
+          "id": "gov-metrics",
+          "title": "Metrics, Value, and Maturity Signals",
+          "summary": "Governance earns trust when it shows outcomes: fewer incidents, faster trusted analytics, clearer ownership—not vanity slide counts.",
+          "keyPoints": [
+            "Track leading indicators (definitions published, owners assigned) and lagging ones (incident rates, audit findings).",
+            "Link metrics to business outcomes: reduced reconciliation time, improved customer contactability, cleaner regulatory reports.",
+            "Maturity models (e.g., DCAM for capability assessment; CMMI-style levels in some programs) help sequence improvement.",
+            "Avoid metric theater: if a KPI never changes decisions, drop or redesign it.",
+            "Reassess maturity periodically; governance is continuous improvement, not a one-time project."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "DCAM is best described at a high level as:",
+              "choices": [
+                "A consumer photo app",
+                "A capability assessment model for data management practices used to find gaps and plan improvements",
+                "A replacement for all databases",
+                "A GDPR court"
+              ],
+              "answerIndex": 1,
+              "explain": "DCAM helps organizations assess and mature data management capabilities."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DCAM Framework – EDM Council / EDM Association",
+              "url": "https://edmcouncil.org/frameworks/dcam/"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "gov-risk",
+          "title": "Risk, Compliance, and Related Frameworks (High-Level)",
+          "summary": "Governance intersects risk and compliance. Learn the landscape at a high level: privacy principles, IT governance frameworks, and security overlays—then involve specialists for binding advice.",
+          "keyPoints": [
+            "GDPR Article 5 highlights principles such as lawfulness/fairness/transparency, purpose limitation, data minimization, accuracy, storage limitation, integrity/confidentiality, and accountability.",
+            "COBIT focuses on enterprise governance and management of information and technology; it can sit alongside data-specific frameworks.",
+            "NIST privacy/cybersecurity frameworks often inform control libraries that data programs must respect.",
+            "Data Lens content is educational and not legal advice; implementers should consult qualified counsel and security teams.",
+            "Map regulations to concrete controls: classification, access reviews, retention jobs, and breach response playbooks."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "Which is one of the GDPR Article 5 principles (high-level)?",
+              "choices": [
+                "Always sell personal data by default",
+                "Data minimization—adequate, relevant, and limited to what is necessary",
+                "Keep identifiers forever without purpose",
+                "Ban all metadata"
+              ],
+              "answerIndex": 1,
+              "explain": "Minimization is a core Article 5 principle; this module is educational, not legal advice."
+            },
+            {
+              "q": "COBIT is primarily associated with:",
+              "choices": [
+                "Enterprise governance/management of information and technology",
+                "Only an HR vacation calendar",
+                "A single cloud vendor SKU",
+                "A music playlist"
+              ],
+              "answerIndex": 0,
+              "explain": "ISACA’s COBIT is a widely used EGIT framework that can complement data management frameworks."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Art. 5 GDPR – Principles relating to processing of personal data",
+              "url": "https://gdpr.eu/article-5-how-to-process-personal-data/"
+            },
+            {
+              "title": "COBIT – ISACA",
+              "url": "https://www.isaca.org/resources/cobit"
+            },
+            {
+              "title": "NIST Research Data Framework (RDaF)",
+              "url": "https://www.nist.gov/programs-projects/research-data-framework-rdaf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dama-wheel",
+      "title": "DAMA Wheel Knowledge Areas",
+      "modules": [
+        {
+          "id": "dama-gov",
+          "title": "Data Governance",
+          "summary": "Data governance is the hub that sets policies, decision rights, and oversight so other data disciplines stay aligned and accountable.",
+          "keyPoints": [
+            "Defines who may decide what about data domains, quality bars, and access.",
+            "Operates through councils, stewards, and documented escalation paths.",
+            "Connects business priorities to standards used by architecture, quality, and security teams.",
+            "Produces policies, RACI charts, issue logs, and compliance evidence.",
+            "Without governance, other knowledge areas drift into conflicting local rules."
+          ],
+          "visualHint": "wheel",
+          "quiz": [
+            {
+              "q": "In the classic DAMA Wheel visualization, where does Data Governance sit?",
+              "choices": [
+                "On the outer ring only",
+                "At the center, coordinating other knowledge areas",
+                "Outside the organization",
+                "Only in marketing decks"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-arch",
+          "title": "Data Architecture",
+          "summary": "Data architecture designs the target structures, platforms, and flow patterns so data supports strategy instead of accidental sprawl.",
+          "keyPoints": [
+            "Creates blueprints for how domains, systems, and platforms relate.",
+            "Aligns technology choices with business capabilities and constraints.",
+            "Guides integration patterns, lake/warehouse strategies, and interface standards.",
+            "Works with enterprise architecture so data is not an afterthought.",
+            "Success looks like intentional landscapes rather than shadow IT sprawl."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Data architecture’s main job is to:",
+              "choices": [
+                "Ignore business strategy",
+                "Provide an intentional blueprint for data structures and flows aligned to enterprise goals",
+                "Replace all stewards",
+                "Delete metadata"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-model",
+          "title": "Data Modeling & Design",
+          "summary": "Modeling turns business meaning into shared structures—conceptual, logical, and physical—so systems speak a common language.",
+          "keyPoints": [
+            "Conceptual models capture business entities and relationships without storage details.",
+            "Logical models refine attributes, keys, and rules independent of a specific product.",
+            "Physical models implement storage for performance, integrity, and platform features.",
+            "Good models reduce ambiguity that later becomes quality incidents.",
+            "Design includes testing and maintenance as requirements change."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Which modeling level is most business-facing and storage-agnostic?",
+              "choices": [
+                "Firmware hex dumps",
+                "Conceptual model",
+                "RAID stripe layout only",
+                "Keyboard macros"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-storage",
+          "title": "Data Storage & Operations",
+          "summary": "Storage and operations keep structured data assets reliable: deploy, tune, back up, recover, and retire databases and filesystems responsibly.",
+          "keyPoints": [
+            "Covers capacity, performance, availability, and operational procedures.",
+            "Includes backup/restore testing and environment management.",
+            "Implements retention and archival mechanics decided by governance.",
+            "Works closely with security for encryption, patching, and access layers.",
+            "Poor operations turn perfect models into outages and silent data loss."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "A healthy storage & operations practice includes:",
+              "choices": [
+                "Never testing restores",
+                "Monitoring, backups with restore tests, and lifecycle retirement of obsolete stores",
+                "Sharing root passwords",
+                "Storing production only on laptops"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-security",
+          "title": "Data Security",
+          "summary": "Data security protects confidentiality, integrity, and appropriate availability—especially for personal and regulated information—through controls and monitoring.",
+          "keyPoints": [
+            "Classifies data and applies proportionate controls.",
+            "Uses access management, encryption, masking, and monitoring.",
+            "Supports privacy obligations and breach readiness in partnership with security teams.",
+            "Balances protection with legitimate business access needs.",
+            "Security requirements should be designed in, not bolted on after an incident."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "Data security is best described as:",
+              "choices": [
+                "Deleting all analytics",
+                "Ensuring appropriate protection and access for data assets, including sensitive personal data",
+                "Only antivirus for email",
+                "A synonym for data modeling"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-integration",
+          "title": "Data Integration & Interoperability",
+          "summary": "Integration moves and aligns data across systems—batch, streaming, APIs, federation—so consumers get consistent, timely inputs.",
+          "keyPoints": [
+            "Includes ETL/ELT, replication, APIs, and virtualization patterns.",
+            "Enforces contracts: schemas, SLAs, and error handling between producers and consumers.",
+            "Interoperability means systems can exchange and use data without endless one-off fixes.",
+            "Lineage from pipelines is essential metadata for trust.",
+            "Fragile point-to-point spaghetti is a common failure mode this discipline prevents."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "Interoperability primarily means:",
+              "choices": [
+                "Systems can exchange and make use of data through agreed formats and interfaces",
+                "Two teams share a coffee machine",
+                "Deleting APIs",
+                "Only offline USB copies"
+              ],
+              "answerIndex": 0,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-content",
+          "title": "Documents & Content Management",
+          "summary": "Much organizational knowledge lives in documents, media, and other unstructured content. This area governs how that content is stored, classified, retained, and found.",
+          "keyPoints": [
+            "Applies retention, access, and classification to files and content platforms.",
+            "Uses taxonomies, search, and records practices so content is findable.",
+            "Bridges unstructured content with structured data when analytics need both.",
+            "Reduces shadow content sprawl on unmanaged drives.",
+            "Treats content as governed information, not disposable clutter."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "Documents & content management focuses on:",
+              "choices": [
+                "Only CPU registers",
+                "Governing unstructured information assets such as documents and media across their lifecycle",
+                "Replacing SQL",
+                "Ignoring search"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-refmdm",
+          "title": "Reference & Master Data",
+          "summary": "Shared reference lists and master entities (customer, product, location) need deliberate management so every system uses consistent values and identities.",
+          "keyPoints": [
+            "Reference data provides controlled codes and classifications used to categorize other data.",
+            "Master data manages core business entities shared across processes.",
+            "Goals include reducing duplicates and conflicting definitions.",
+            "Stewardship and matching rules create trusted ‘golden’ views where appropriate.",
+            "Poor master/reference practice breaks reporting and customer experience."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Country codes used to classify addresses are typically:",
+              "choices": [
+                "Transactional line items",
+                "Reference data",
+                "Unstructured video",
+                "GPU kernels"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-dwbi",
+          "title": "Data Warehousing & Business Intelligence",
+          "summary": "Warehousing and BI organize analytical data and deliver trustworthy reporting and self-service insight for decisions.",
+          "keyPoints": [
+            "Structures curated analytical data for consumption (warehouses, marts, lakehouse patterns).",
+            "Depends on upstream quality, modeling, and integration discipline.",
+            "Includes semantic layers, certified metrics, and access controls for reports.",
+            "Separates exploratory sandboxes from certified production metrics when needed.",
+            "BI value collapses if definitions of ‘revenue’ differ by dashboard."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "A common failure mode for BI programs is:",
+              "choices": [
+                "Too much agreement on metric definitions",
+                "Conflicting metric definitions across dashboards due to weak upstream governance",
+                "Having any documentation",
+                "Using charts"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-metadata",
+          "title": "Metadata Management",
+          "summary": "Metadata is data about data: definitions, ownership, lineage, sensitivity tags, and technical descriptors that make assets understandable and governable.",
+          "keyPoints": [
+            "Business metadata explains meaning; technical metadata describes structure and jobs; operational metadata covers run history.",
+            "Catalogs and glossaries help people find and trust assets.",
+            "Lineage shows where data came from and where it goes.",
+            "Metadata enables automation: classification, access, and quality rules.",
+            "Without metadata, every reuse starts with reverse-engineering."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Lineage metadata primarily helps you:",
+              "choices": [
+                "Change monitor wallpaper",
+                "Trace origins and downstream impacts of a dataset or field",
+                "Increase font size",
+                "Disable backups"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "dama-quality",
+          "title": "Data Quality Management",
+          "summary": "Data quality management defines what ‘fit for use’ means, measures it, and drives remediation so decisions rest on dependable data.",
+          "keyPoints": [
+            "Common teaching dimensions include accuracy, completeness, consistency, timeliness, validity, and uniqueness.",
+            "Profile data, set rules/thresholds, monitor, and fix root causes—not only symptoms.",
+            "Quality is cross-functional: modeling, stewardship, and pipelines all contribute.",
+            "Prioritize critical data elements tied to real decisions or obligations.",
+            "Continuous improvement beats one-time cleansing projects."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "Which set lists widely taught core data quality dimensions?",
+              "choices": [
+                "Hue, saturation, brightness only",
+                "Accuracy, completeness, consistency, timeliness, validity, uniqueness",
+                "Only file size",
+                "Font and color"
+              ],
+              "answerIndex": 1,
+              "explain": "This module summarizes the knowledge area in original learner language based on public DAMA-DMBOK overviews."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roles",
+      "title": "Roles & Stewardship",
+      "modules": [
+        {
+          "id": "roles-trio",
+          "title": "Owner, Steward, and Custodian",
+          "summary": "Three complementary roles keep decision rights, caretaking, and technical controls from collapsing into one overloaded person.",
+          "keyPoints": [
+            "Data Owner: senior accountability for a domain—approves policies, access principles, and quality expectations.",
+            "Data Steward: domain expert who maintains definitions, monitors quality, and translates policy into practice.",
+            "Data Custodian: typically IT/platform role that implements storage, security, backups, and access mechanics.",
+            "Owners decide ‘what/why’; stewards handle ‘how’ day-to-day; custodians run the systems.",
+            "Small organizations may combine roles, but should still separate accountability from pure administration."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Who typically configures database permissions after an access decision?",
+              "choices": [
+                "Only the CEO personally every time",
+                "Often the data custodian implementing owner/steward-approved rules",
+                "Random interns without tickets",
+                "The coffee machine"
+              ],
+              "answerIndex": 1,
+              "explain": "Custodians implement technical controls; they do not usually set business policy alone."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Data Owners vs Data Stewards vs Data Custodians – DataSunrise",
+              "url": "https://www.datasunrise.com/knowledge-center/data-owners-vs-data-stewards-vs-data-custodians/"
+            },
+            {
+              "title": "Your role: Data Steward – ELIXIR RDMkit",
+              "url": "https://rdmkit.elixir-europe.org/data_steward"
+            }
+          ]
+        },
+        {
+          "id": "roles-council-cdo",
+          "title": "Councils, CDO, and Executive Sponsors",
+          "summary": "Enterprise programs need visible leadership: a chief data officer (or equivalent), sponsors, and a council that can make cross-team calls stick.",
+          "keyPoints": [
+            "Executive sponsors secure budget and prioritize governance work against competing projects.",
+            "A CDO or data lead coordinates strategy across domains and platforms.",
+            "Councils approve shared standards and mediate conflicts between domains.",
+            "Working groups handle deep dives (glossary, quality rules) and bring proposals upward.",
+            "Authority without expertise fails; expertise without authority stalls—balance both."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Why does a governance program need executive sponsorship?",
+              "choices": [
+                "To decorate org charts only",
+                "To fund work, remove blockers, and signal that data decisions are organizational priorities",
+                "Sponsors write every SQL join",
+                "Sponsorship replaces backups"
+              ],
+              "answerIndex": 1,
+              "explain": "Sponsorship provides air cover and resources for sustained change."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            },
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            }
+          ]
+        },
+        {
+          "id": "roles-raci",
+          "title": "Using RACI for Data Decisions",
+          "summary": "RACI clarifies who does the work, who owns the outcome, who must be consulted, and who is informed—especially for access, quality, and retention.",
+          "keyPoints": [
+            "Responsible people perform the activity; Accountable people own the result (one preferred).",
+            "Consulted stakeholders give input before decisions; Informed parties hear outcomes after.",
+            "Apply RACI to recurring governance activities: classification, access reviews, MDM changes, retention exceptions.",
+            "Publish the matrix where teams look for process, not only in a forgotten slide deck.",
+            "Revisit RACI when org structures or platforms change."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "In RACI, ‘C’ usually means:",
+              "choices": [
+                "Coffee provider",
+                "Consulted—provides input before the decision",
+                "Custodian only",
+                "Cancelled"
+              ],
+              "answerIndex": 1,
+              "explain": "Consulted parties contribute expertise before a decision is finalized."
+            }
+          ],
+          "sources": [
+            {
+              "title": "Data Owners vs Data Stewards vs Data Custodians – DataSunrise",
+              "url": "https://www.datasunrise.com/knowledge-center/data-owners-vs-data-stewards-vs-data-custodians/"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "roles-fair-culture",
+          "title": "FAIR Thinking and Stewardship Culture",
+          "summary": "FAIR principles (Findable, Accessible, Interoperable, Reusable) give stewards a shared north star for making data usable by humans and machines—complementing, not replacing, ethics and CARE-style community considerations where relevant.",
+          "keyPoints": [
+            "Findable: persistent identifiers and rich, indexed metadata.",
+            "Accessible: retrieval via standard protocols with auth where needed; metadata may remain available even if data cannot.",
+            "Interoperable: shared vocabularies and qualified references between datasets.",
+            "Reusable: clear licenses, provenance, and community standards.",
+            "Stewardship culture rewards documentation and quality as first-class work, not unpaid overtime."
+          ],
+          "visualHint": "wheel",
+          "quiz": [
+            {
+              "q": "FAIR’s ‘F’ stands for:",
+              "choices": [
+                "Fragmented",
+                "Findable",
+                "Forgotten",
+                "Forbidden"
+              ],
+              "answerIndex": 1,
+              "explain": "Findability is the first FAIR pillar."
+            }
+          ],
+          "sources": [
+            {
+              "title": "FAIR Guiding Principles – GO FAIR Foundation",
+              "url": "https://www.go-fair.org/fair-principles/"
+            },
+            {
+              "title": "Your role: Data Steward – ELIXIR RDMkit",
+              "url": "https://rdmkit.elixir-europe.org/data_steward"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quality-metadata",
+      "title": "Quality & Metadata",
+      "modules": [
+        {
+          "id": "qm-dimensions",
+          "title": "Data Quality Dimensions",
+          "summary": "Quality dimensions are lenses for measuring fitness for use. Six dimensions appear again and again in practitioner teaching.",
+          "keyPoints": [
+            "Accuracy: values correctly represent the real-world or trusted source.",
+            "Completeness: required fields and records are present.",
+            "Consistency: the same fact agrees across systems or records.",
+            "Timeliness: data is available and current when decisions need it.",
+            "Validity: values obey formats, ranges, and business rules.",
+            "Uniqueness: entities are not unintentionally duplicated.",
+            "Organizations may add integrity, precision, or relevance to fit their context."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "A birth date recorded as a future date most clearly fails which dimension?",
+              "choices": [
+                "Timeliness only in all cases",
+                "Validity (and possibly accuracy)",
+                "Uniqueness of fonts",
+                "Findability of the coffee shop"
+              ],
+              "answerIndex": 1,
+              "explain": "Rule-breaking values are validity failures; they may also be inaccurate."
+            }
+          ],
+          "sources": [
+            {
+              "title": "What Are Data Quality Dimensions? – IBM",
+              "url": "https://www.ibm.com/think/topics/data-quality-dimensions"
+            },
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            }
+          ]
+        },
+        {
+          "id": "qm-measure",
+          "title": "Measuring, Monitoring, and Improving Quality",
+          "summary": "Dimensions become useful when turned into rules, thresholds, dashboards, and root-cause fixes.",
+          "keyPoints": [
+            "Profile data to discover nulls, outliers, and duplicates before setting targets.",
+            "Define critical data elements and SLAs with business owners.",
+            "Automate checks in pipelines; alert stewards when thresholds breach.",
+            "Prefer fixing upstream processes over endless downstream cleansing.",
+            "Report trends to the governance forum so quality stays funded."
+          ],
+          "visualHint": "flow",
+          "quiz": [
+            {
+              "q": "After detecting recurring incomplete addresses, the best long-term move is usually to:",
+              "choices": [
+                "Hide the field forever",
+                "Fix the capture process upstream and monitor completeness",
+                "Blame the BI tool only",
+                "Duplicate every row"
+              ],
+              "answerIndex": 1,
+              "explain": "Sustainable quality comes from preventing defects at the source."
+            }
+          ],
+          "sources": [
+            {
+              "title": "What Are Data Quality Dimensions? – IBM",
+              "url": "https://www.ibm.com/think/topics/data-quality-dimensions"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            }
+          ]
+        },
+        {
+          "id": "qm-metadata-types",
+          "title": "Types of Metadata",
+          "summary": "Different metadata types answer different questions: what does it mean, how is it stored, how did it run, and who may see it?",
+          "keyPoints": [
+            "Business metadata: definitions, owners, glossary terms, certified metrics.",
+            "Technical metadata: schemas, column types, jobs, and physical locations.",
+            "Operational metadata: freshness, run success/failure, volumes, SLAs.",
+            "Governance metadata: classification, retention tags, access policies.",
+            "A catalog that only lists tables without meaning still leaves users guessing."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "A glossary definition of ‘active customer’ is primarily:",
+              "choices": [
+                "Business metadata",
+                "A GPU driver",
+                "A firewall rule only",
+                "Unstructured video"
+              ],
+              "answerIndex": 0,
+              "explain": "Business metadata captures shared meaning for people and processes."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "qm-lineage-catalog",
+          "title": "Lineage, Catalogs, and Discovery",
+          "summary": "Catalogs help people find assets; lineage explains impact and provenance—together they underpin trust and safe change.",
+          "keyPoints": [
+            "Data catalogs inventory assets with searchable metadata and ownership.",
+            "Lineage traces fields and datasets from sources through transforms to reports.",
+            "Impact analysis uses lineage before changing a critical upstream field.",
+            "Discovery without access governance creates risk; pair findability with controls.",
+            "FAIR findability depends on rich metadata registered in searchable resources."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "Before renaming a widely used customer ID field, teams should check:",
+              "choices": [
+                "Only the weather",
+                "Lineage/impact to see which pipelines and reports depend on it",
+                "Nothing—rename live in production casually",
+                "Only printer settings"
+              ],
+              "answerIndex": 1,
+              "explain": "Lineage prevents surprise breakages across the estate."
+            }
+          ],
+          "sources": [
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "FAIR Guiding Principles – GO FAIR Foundation",
+              "url": "https://www.go-fair.org/fair-principles/"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        },
+        {
+          "id": "qm-fair-depth",
+          "title": "Applying FAIR in Practice",
+          "summary": "FAIR is a set of guiding principles, not a certificate sticker. Apply them proportionally to research and enterprise sharing goals.",
+          "keyPoints": [
+            "Assign persistent identifiers and keep metadata linked to those IDs.",
+            "Publish enough metadata for humans and machines to evaluate reuse.",
+            "Use open, standard protocols for access; add auth when data cannot be fully open.",
+            "Adopt community vocabularies and clear usage licenses.",
+            "Document provenance so others know how the data was produced."
+          ],
+          "visualHint": "wheel",
+          "quiz": [
+            {
+              "q": "Which practice supports FAIR Reusability?",
+              "choices": [
+                "Hide the license and erase provenance",
+                "Provide a clear usage license plus rich provenance and community-relevant standards",
+                "Never describe attributes",
+                "Use only private slang with no documentation"
+              ],
+              "answerIndex": 1,
+              "explain": "Reusable data needs licenses, provenance, and standards-aligned description."
+            }
+          ],
+          "sources": [
+            {
+              "title": "FAIR Guiding Principles – GO FAIR Foundation",
+              "url": "https://www.go-fair.org/fair-principles/"
+            },
+            {
+              "title": "USGS Data Lifecycle",
+              "url": "https://www.usgs.gov/data-management/data-lifecycle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mdm-reference",
+      "title": "Master & Reference Data",
+      "modules": [
+        {
+          "id": "mdm-master",
+          "title": "What Is Master Data?",
+          "summary": "Master data describes the core business entities an organization repeatedly relies on—customers, products, suppliers, locations—and needs a trusted shared view.",
+          "keyPoints": [
+            "Master data is typically more stable and widely reused than raw transactions.",
+            "Without MDM, each system invents its own conflicting customer or product records.",
+            "Creating a ‘golden record’ involves matching, merging, and stewarding conflicting sources.",
+            "Domains often include customer, product, supplier, and location (plus industry-specific entities).",
+            "MDM is as much process and stewardship as it is software."
+          ],
+          "visualHint": "diagram",
+          "quiz": [
+            {
+              "q": "A reconciled single customer profile used across CRM and billing is an example of:",
+              "choices": [
+                "Unstructured email only",
+                "Master data managed for consistency",
+                "A temporary cache with no owner",
+                "A font file"
+              ],
+              "answerIndex": 1,
+              "explain": "MDM aims for consistent core entity data across systems."
+            }
+          ],
+          "sources": [
+            {
+              "title": "What is Master Data Management? – IBM",
+              "url": "https://www.ibm.com/think/topics/master-data-management"
+            },
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            }
+          ]
+        },
+        {
+          "id": "mdm-reference",
+          "title": "What Is Reference Data?",
+          "summary": "Reference data is the controlled vocabulary used to classify and validate other data—codes, lists, and standard values.",
+          "keyPoints": [
+            "Examples: country codes, currency codes, status lists, product category taxonomies.",
+            "Good reference data improves validity and consistency for transactional and master records.",
+            "Reference lists need owners, versioning, and change control when values evolve.",
+            "Reference data is usually simpler than master entities but still mission-critical.",
+            "Conflicting code lists across systems create silent reporting errors."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "ISO country codes used in address forms are best classified as:",
+              "choices": [
+                "Master customer golden records",
+                "Reference data",
+                "Streaming click events",
+                "Backup tapes"
+              ],
+              "answerIndex": 1,
+              "explain": "Codes that classify other data are classic reference data."
+            }
+          ],
+          "sources": [
+            {
+              "title": "What is Master Data Management? – IBM",
+              "url": "https://www.ibm.com/think/topics/master-data-management"
+            },
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            }
+          ]
+        },
+        {
+          "id": "mdm-vs-rdm",
+          "title": "MDM vs Reference Data Management",
+          "summary": "MDM and reference data management (RDM) are related but not identical. Know when you need entity resolution versus controlled lists.",
+          "keyPoints": [
+            "RDM governs code sets and classifications; MDM governs shared business entities and relationships.",
+            "MDM often consumes reference data (e.g., valid country codes on a customer record).",
+            "MDM challenges include matching, survivorship rules, and hierarchy management.",
+            "RDM challenges include versioning lists, effective dating, and distributing updates.",
+            "Both need stewardship, quality rules, and clear ownership—just at different scopes."
+          ],
+          "visualHint": "cards",
+          "quiz": [
+            {
+              "q": "Which statement is most accurate?",
+              "choices": [
+                "MDM and RDM are always the exact same discipline with identical scope",
+                "RDM manages controlled lists/codes; MDM manages core shared entities—often used together",
+                "Neither needs stewardship",
+                "Reference data replaces all transactions"
+              ],
+              "answerIndex": 1,
+              "explain": "They complement each other: lists vs entities."
+            },
+            {
+              "q": "Survivorship rules are most associated with:",
+              "choices": [
+                "Choosing which source values win when building a master golden record",
+                "Picking office plants",
+                "CSS z-index only",
+                "Deleting the catalog"
+              ],
+              "answerIndex": 0,
+              "explain": "Survivorship decides winning attribute values during master merge."
+            }
+          ],
+          "sources": [
+            {
+              "title": "What is Master Data Management? – IBM",
+              "url": "https://www.ibm.com/think/topics/master-data-management"
+            },
+            {
+              "title": "DAMA-DMBOK Framework – Core Knowledge Areas",
+              "url": "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+            },
+            {
+              "title": "DAMA DMBOK Framework Guide (Atlan)",
+              "url": "https://atlan.com/dama-dmbok-framework/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
