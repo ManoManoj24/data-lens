@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { ModuleDiagram } from "@/components/Diagrams";
 import { Checklist, Quiz, SeeAlso } from "@/components/LessonInteractive";
 import { CompleteDot } from "@/components/ContinueLink";
+import { LinkedText } from "@/components/LinkedText";
+import { skipRisks } from "@/data/skip-risks";
 import { getAllModules, getModule, getNeighbors, stagesForModule } from "@/lib/curriculum";
 import { paragraphs, steps } from "@/lib/prose";
 
@@ -29,6 +31,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
     .map((item) => ({ id: item.module.id, title: item.module.title }));
   const how = steps(module.lesson.howItWorks);
+  const skipRisk = skipRisks[module.id];
 
   return (
     <article className="mx-auto max-w-page px-5 py-12 md:px-8">
@@ -69,7 +72,9 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
         <h2 className="font-serif text-3xl">The idea</h2>
         <div className="mt-3 text-lg leading-relaxed">
           {paragraphs(module.lesson.concept).map((paragraph) => (
-            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            <p key={paragraph.slice(0, 48)}>
+              <LinkedText text={paragraph} />
+            </p>
           ))}
         </div>
       </section>
@@ -81,24 +86,43 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
             {how.map((step, index) => (
               <li key={step} className="grid grid-cols-[auto_1fr] gap-3">
                 <span className="font-serif text-xl text-accent">{index + 1}</span>
-                <span>{step}</span>
+                <span>
+                  <LinkedText text={step} />
+                </span>
               </li>
             ))}
           </ol>
         ) : (
           <div className="prose-lesson mt-3">
             {paragraphs(module.lesson.howItWorks).map((paragraph) => (
-              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              <p key={paragraph.slice(0, 48)}>
+                <LinkedText text={paragraph} />
+              </p>
             ))}
           </div>
         )}
       </section>
 
-      <section className="mt-10 max-w-3xl rounded-3xl border border-line border-l-4 border-l-clay bg-[color:var(--paper-raised)] p-5 md:p-6">
-        <h2 className="font-serif text-3xl">Worked example</h2>
-        <div className="prose-lesson mt-3">
+      {skipRisk ? (
+        <aside className="mt-10 max-w-3xl rounded-3xl border border-clay/40 bg-clay/10 px-5 py-5 md:px-6" aria-label="What breaks if you skip this">
+          <p className="text-xs uppercase tracking-[0.16em] text-clay">What breaks if you skip this</p>
+          <p className="mt-2 text-ink-soft">
+            <LinkedText text={skipRisk} />
+          </p>
+        </aside>
+      ) : null}
+
+      <section className="relative mt-10 max-w-3xl overflow-hidden rounded-3xl border border-gold/40 bg-[#f6f0e2] p-5 shadow-[inset_0_0_0_1px_rgba(122,86,40,0.08)] md:p-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <p className="text-xs uppercase tracking-[0.16em] text-gold">Worked example</p>
+          <p className="text-xs text-muted">A scene, not a definition</p>
+        </div>
+        <h2 className="mt-2 font-serif text-3xl">See it in one place</h2>
+        <div className="prose-lesson mt-3 border-l-2 border-gold/70 pl-4">
           {paragraphs(module.lesson.example).map((paragraph) => (
-            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            <p key={paragraph.slice(0, 48)}>
+              <LinkedText text={paragraph} />
+            </p>
           ))}
         </div>
       </section>

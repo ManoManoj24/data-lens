@@ -11,6 +11,8 @@ const LABELS: Record<SearchKind, string> = {
   case: "Cases",
   lab: "Labs",
   path: "Paths",
+  sheet: "Cheatsheets",
+  practice: "Practice",
 };
 
 export function SearchExperience({ docs, initialQuery = "" }: { docs: SearchDoc[]; initialQuery?: string }) {

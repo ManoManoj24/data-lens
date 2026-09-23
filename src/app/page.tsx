@@ -61,11 +61,13 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section className="mt-16 grid gap-4 md:grid-cols-3">
+      <section className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {[
           ["Journey", "One SKU and one customer, stage by stage.", "/journey"],
           ["Labs", "Score quality, assign a RACI, choose a next action.", "/labs"],
           ["Cases", "A catalog, a golden record, and a FAIR deposit.", "/cases"],
+          ["Cheatsheets", "One-page sheets you print or save as PDF.", "/cheatsheets"],
+          ["Interview cards", "Fifteen prompts. You mark your own answers.", "/practice/interview"],
         ].map(([title, text, href]) => (
           <Link key={href} href={href} className="rounded-3xl border border-line p-5 no-underline hover:border-ink">
             <h2 className="font-serif text-3xl">{title}</h2>

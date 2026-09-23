@@ -144,6 +144,20 @@ export function JourneyExperience({
             Next stage
           </button>
         </div>
+        {visited.length >= journey.stages.length ? (
+          <p className="mt-6 rounded-2xl border border-accent/40 bg-accent/10 px-4 py-3 text-sm">
+            Every stage is open on this browser.{" "}
+            <Link href="/journey/certificate" className="font-medium text-accent">
+              View the journey certificate
+            </Link>
+            .
+          </p>
+        ) : (
+          <p className="mt-6 text-sm text-muted">
+            {visited.filter((id) => journey.stages.some((item) => item.id === id)).length} of {journey.stages.length} stages
+            opened on this browser. The certificate appears when all seven have been opened.
+          </p>
+        )}
       </section>
     </div>
   );

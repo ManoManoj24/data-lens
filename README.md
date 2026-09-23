@@ -25,13 +25,17 @@ The primary path is the **Data Journey**: one apparel SKU (`NL-HAT-204`, the Har
 | `/cases/retail-pim` | Catalog create, enrich, publish, retire. |
 | `/cases/customer-mdm` | Golden record, match conflicts, unmerge. |
 | `/cases/research-fair` | FAIR readiness for a durability dataset. |
-| `/search` | Client-side search across lessons, glossary, journey, cases, labs, and paths. |
-| `/glossary` | Working definitions. |
+| `/search` | Client-side search across lessons, glossary, journey, cases, labs, paths, cheatsheets, and practice. |
+| `/glossary` | Working definitions. Terms in lesson prose link here when the phrase matches. |
+| `/cheatsheets` | Printable one-pagers. Use the browser print dialog to save a PDF. |
+| `/cheatsheets/lifecycle` | Lifecycle stages. Also `/dama`, `/quality`, and `/raci`. |
+| `/practice/interview` | Fifteen interview scenarios. Self-mark correct or incorrect. |
+| `/journey/certificate` | Title card after every journey stage has been opened in this browser. |
 | `/sources` | Public bibliography. |
 
 ## Progress
 
-Lesson completion is stored in `localStorage` under `datalens.completedModules` (a JSON array of module ids). Older object-shaped values are read and normalized. Passing a lesson quiz adds the id. Other features use separate keys (`datalens.checklist.*`, `datalens.raciLab`, `datalens.lifecycleLab`, `datalens.journeyVisited`, `datalens.fairChecks`) so they do not overwrite completion.
+Lesson completion is stored in `localStorage` under `datalens.completedModules` (a JSON array of module ids). Older object-shaped values are read and normalized. Passing a lesson quiz adds the id. Other features use separate keys (`datalens.checklist.*`, `datalens.raciLab`, `datalens.lifecycleLab`, `datalens.journeyVisited`, `datalens.journeyCompletedAt`, `datalens.certificateName`, `datalens.fairChecks`, `datalens.interviewMarks`) so they do not overwrite completion.
 
 ## Develop
 

@@ -54,6 +54,18 @@ for (const id of ["mdm-golden", "mdm-match-merge", "mdm-hierarchy", "mdm-ops"]) 
   if (!linked.has(id)) errors.push(`${id} not linked from journey`);
 }
 
+const riskText = readFileSync(resolve(root, "src/data/skip-risks.ts"), "utf8");
+for (const module of modules) {
+  if (!riskText.includes(`"${module.id}":`)) errors.push(`missing skip risk ${module.id}`);
+}
+const interviewText = readFileSync(resolve(root, "src/data/interview.ts"), "utf8");
+const interviewCount = (interviewText.match(/id: "/g) ?? []).length;
+if (interviewCount < 12 || interviewCount > 15) errors.push(`interview cards ${interviewCount}`);
+for (const id of ["lifecycle", "dama", "quality", "raci"]) {
+  const sheet = readFileSync(resolve(root, "src/data/cheatsheets.ts"), "utf8");
+  if (!sheet.includes(`id: "${id}"`)) errors.push(`missing cheatsheet ${id}`);
+}
+
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);

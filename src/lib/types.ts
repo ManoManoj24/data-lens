@@ -118,7 +118,7 @@ export type CasesFile = {
   cases: CaseStudy[];
 };
 
-export type SearchKind = "lesson" | "glossary" | "journey" | "case" | "lab" | "path";
+export type SearchKind = "lesson" | "glossary" | "journey" | "case" | "lab" | "path" | "sheet" | "practice";
 
 export type SearchDoc = {
   id: string;

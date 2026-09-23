@@ -10,6 +10,8 @@ const LINKS = [
   { href: "/#tracks", label: "Tracks" },
   { href: "/labs", label: "Labs" },
   { href: "/cases", label: "Cases" },
+  { href: "/cheatsheets", label: "Sheets" },
+  { href: "/practice/interview", label: "Practice" },
   { href: "/glossary", label: "Glossary" },
   { href: "/search", label: "Search" },
 ];
@@ -24,7 +26,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-line/80 bg-[color:var(--paper)]/90 backdrop-blur-md">
+    <header className="no-print sticky top-0 z-30 border-b border-line/80 bg-[color:var(--paper)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-page items-center justify-between gap-4 px-5 py-3 md:px-8">
         <Link href="/" className="group flex items-center gap-3 no-underline" onClick={() => setOpen(false)}>
           <span className="grid h-9 w-9 place-items-center rounded-full border border-ink text-accent" aria-hidden>
@@ -38,12 +40,12 @@ export function SiteHeader() {
             <span className="text-[11px] uppercase tracking-[0.16em] text-muted">See the whole path</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
           {LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-3 py-1.5 text-sm no-underline ${
+              className={`rounded-full px-2 py-1.5 text-sm no-underline ${
                 active(pathname, link.href) ? "bg-ink text-[color:var(--paper)]" : "text-ink-soft hover:bg-black/5"
               }`}
               aria-current={active(pathname, link.href) ? "page" : undefined}
@@ -54,7 +56,7 @@ export function SiteHeader() {
         </nav>
         <button
           type="button"
-          className="rounded-full border border-line px-3 py-1.5 text-sm md:hidden"
+          className="rounded-full border border-line px-3 py-1.5 text-sm lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}
@@ -63,7 +65,7 @@ export function SiteHeader() {
         </button>
       </div>
       {open ? (
-        <nav id="mobile-nav" className="border-t border-line px-5 py-3 md:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="border-t border-line px-5 py-3 lg:hidden" aria-label="Mobile">
           <ul className="grid gap-1">
             {LINKS.map((link) => (
               <li key={link.href}>

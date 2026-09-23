@@ -195,6 +195,33 @@ export function buildSearchDocs(): SearchDoc[] {
     });
   }
 
+  docs.push(
+    {
+      id: "sheet-index",
+      kind: "sheet",
+      title: "Cheatsheets",
+      href: "/cheatsheets",
+      kicker: "Cheatsheet",
+      text: "Printable one-page references for the data lifecycle, DAMA wheel, quality dimensions, and RACI roles. Browser print to PDF.",
+    },
+    {
+      id: "practice-interview",
+      kind: "practice",
+      title: "Interview practice",
+      href: "/practice/interview",
+      kicker: "Practice",
+      text: "Scenario cards for data management interviews. Self-mark correct or incorrect. Lifecycle, golden record, RACI, FAIR, quality dimensions.",
+    },
+    {
+      id: "journey-certificate",
+      kind: "journey",
+      title: "Journey certificate",
+      href: "/journey/certificate",
+      kicker: "Data Journey",
+      text: "Title card after opening every journey stage. Printable. Stored only in this browser.",
+    },
+  );
+
   for (const path of pathsFile.paths) {
     docs.push({
       id: `path-${path.id}`,

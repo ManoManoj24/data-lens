@@ -80,6 +80,39 @@ input[type="range"] {
   width: 100%;
 }
 
+@media print {
+  header,
+  footer,
+  .no-print,
+  body::before {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: #1c1915;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .print-sheet,
+  #certificate {
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

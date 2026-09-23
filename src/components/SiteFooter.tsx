@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-line">
+    <footer className="no-print mt-20 border-t border-line">
       <div className="mx-auto grid max-w-page gap-8 px-5 py-10 md:grid-cols-[1.4fr_1fr] md:px-8">
         <div>
           <p className="font-serif text-2xl">Data Lens</p>
@@ -17,6 +17,9 @@ export function SiteFooter() {
           <Link href="/labs">Labs</Link>
           <Link href="/cases">Case studies</Link>
           <Link href="/glossary">Glossary</Link>
+          <Link href="/cheatsheets">Cheatsheets</Link>
+          <Link href="/practice/interview">Interview practice</Link>
+          <Link href="/journey/certificate">Journey certificate</Link>
           <Link href="/sources">Sources</Link>
         </nav>
       </div>
