@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Iowan Old Style", Palatino, Georgia, serif;
+  --color-paper: #f3eee4;
+  --color-paper-deep: #e6dfd1;
+  --color-ink: #17202b;
+  --color-ink-soft: #3e4c5e;
+  --color-line: #d5ccbc;
+  --color-card: #fffdf8;
+  --color-lens: #0e6a67;
+  --color-lens-deep: #0a4e4c;
+  --color-gold: #8a5a12;
+  --color-gold-bright: #e7c27a;
+  --color-rose: #7a3e4e;
+}
+
+body {
+  background:
+    radial-gradient(1100px 480px at 0% -10%, rgba(14, 106, 103, 0.09), transparent 55%),
+    radial-gradient(900px 420px at 100% 0%, rgba(138, 90, 18, 0.1), transparent 50%),
+    var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #c9e4e1;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-lens);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: white;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-lens-deep);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.panel {
+  background: color-mix(in srgb, var(--color-card) 88%, transparent);
+  border: 1px solid var(--color-line);
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.glossary-link {
+  color: var(--color-lens-deep);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-lens) 45%, transparent);
+  text-underline-offset: 3px;
+}
+
+.glossary-link:hover {
+  text-decoration-color: var(--color-lens);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--color-lens);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-lens-deep);
+}
+
+.btn-secondary {
+  background: var(--color-card);
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-lens);
+  color: var(--color-lens-deep);
+}
+
+.wheel-hit:focus-visible {
+  outline: none;
+}
+
+.wheel-hit:focus-visible path,
+.wheel-hit:focus-visible circle {
+  stroke: var(--color-ink);
+  stroke-width: 4px;
+}
+
+.wheel-label {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .wheel-label {
+    display: inline;
+  }
+}
+
