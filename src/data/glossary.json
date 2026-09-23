@@ -1,0 +1,245 @@
+{
+  "title": "Data Lens Glossary",
+  "terms": [
+    {
+      "term": "Data Lifecycle",
+      "definition": "A conceptual sequence of stages data passes through—from planning and creation to use, sharing, archiving, and destruction—often with loops and parallel paths."
+    },
+    {
+      "term": "Data Governance",
+      "definition": "The system of decision rights, policies, roles, and oversight that directs how an organization manages and uses data as an asset."
+    },
+    {
+      "term": "Data Management",
+      "definition": "The set of practices that develop, protect, deliver, and improve data so it supports organizational goals."
+    },
+    {
+      "term": "DAMA-DMBOK",
+      "definition": "DAMA International’s Data Management Body of Knowledge—a vendor-neutral framework organizing data management into knowledge areas with governance at the center."
+    },
+    {
+      "term": "Knowledge Area",
+      "definition": "In DAMA-DMBOK, one of the major disciplines (such as metadata or data quality) that together describe enterprise data management."
+    },
+    {
+      "term": "DAMA Wheel",
+      "definition": "A visual model placing data governance at the hub with other knowledge areas arranged around it to show interdependence."
+    },
+    {
+      "term": "NIST RDaF",
+      "definition": "NIST’s Research Data Framework—a community-informed map of research data management organized around six lifecycle stages and supporting topics."
+    },
+    {
+      "term": "USGS Science Data Lifecycle Model",
+      "definition": "A USGS model with stages Plan, Acquire, Process, Analyze, Preserve, and Publish/Share, plus cross-cutting describe, quality, and security activities."
+    },
+    {
+      "term": "Cross-Cutting Activity",
+      "definition": "Work such as metadata, quality, or security that must continue across multiple lifecycle stages rather than occurring only once."
+    },
+    {
+      "term": "Data Owner",
+      "definition": "A role with accountability for decisions about a data domain, including access principles, quality expectations, and policy alignment."
+    },
+    {
+      "term": "Data Steward",
+      "definition": "A role that operationalizes governance day to day—maintaining definitions, monitoring quality, and bridging business and technical teams."
+    },
+    {
+      "term": "Data Custodian",
+      "definition": "A typically technical role that implements storage, security, backups, and access controls according to owner and steward requirements."
+    },
+    {
+      "term": "Data Governance Council",
+      "definition": "A cross-functional body that approves enterprise data standards and resolves conflicts spanning multiple domains."
+    },
+    {
+      "term": "Chief Data Officer (CDO)",
+      "definition": "An executive or senior leader responsible for enterprise data strategy, often including governance coordination and value from data assets."
+    },
+    {
+      "term": "RACI",
+      "definition": "A responsibility matrix labeling roles as Responsible, Accountable, Consulted, or Informed for each activity."
+    },
+    {
+      "term": "Decision Rights",
+      "definition": "Explicit authority describing who may approve which kinds of data-related decisions."
+    },
+    {
+      "term": "Data Policy",
+      "definition": "A high-level rule set stating required and prohibited behaviors for creating, accessing, sharing, retaining, or disposing of data."
+    },
+    {
+      "term": "Data Standard",
+      "definition": "A measurable convention (naming, formats, codes, required metadata) that makes policy enforceable in practice."
+    },
+    {
+      "term": "Data Classification",
+      "definition": "Labeling data by sensitivity or criticality so proportionate security and handling rules can apply."
+    },
+    {
+      "term": "Data Minimization",
+      "definition": "Collecting and keeping only the data that is adequate and necessary for a stated purpose."
+    },
+    {
+      "term": "Purpose Limitation",
+      "definition": "Using personal data for specified, legitimate purposes and not for incompatible secondary uses without a proper basis."
+    },
+    {
+      "term": "Retention Schedule",
+      "definition": "Rules stating how long categories of records or data must be kept and when they should be archived or destroyed."
+    },
+    {
+      "term": "FAIR Principles",
+      "definition": "Guiding principles that data and metadata should be Findable, Accessible, Interoperable, and Reusable for humans and machines."
+    },
+    {
+      "term": "Persistent Identifier",
+      "definition": "A long-lasting unique ID (such as a DOI) used to locate and cite a dataset or digital object reliably over time."
+    },
+    {
+      "term": "Metadata",
+      "definition": "Descriptive information about data—meaning, structure, ownership, lineage, sensitivity, and operational status—that enables discovery and governance."
+    },
+    {
+      "term": "Business Glossary",
+      "definition": "A curated list of business terms and definitions agreed across teams to reduce ambiguity in metrics and entities."
+    },
+    {
+      "term": "Data Catalog",
+      "definition": "A searchable inventory of data assets enriched with metadata, ownership, and often usage or quality signals."
+    },
+    {
+      "term": "Data Lineage",
+      "definition": "Traceability of data from sources through transformations to downstream products, used for impact analysis and trust."
+    },
+    {
+      "term": "Provenance",
+      "definition": "Documented history of how a dataset was created, processed, and by whom—supporting reuse and audit."
+    },
+    {
+      "term": "Data Quality",
+      "definition": "The degree to which data is fit for its intended uses, often assessed across multiple dimensions."
+    },
+    {
+      "term": "Accuracy",
+      "definition": "A quality dimension measuring how correctly data represents real-world facts or trusted sources."
+    },
+    {
+      "term": "Completeness",
+      "definition": "A quality dimension measuring whether required values and records are present."
+    },
+    {
+      "term": "Consistency",
+      "definition": "A quality dimension measuring whether the same information agrees across systems or records."
+    },
+    {
+      "term": "Timeliness",
+      "definition": "A quality dimension measuring whether data is available and sufficiently current when needed."
+    },
+    {
+      "term": "Validity",
+      "definition": "A quality dimension measuring conformance to formats, ranges, and defined business rules."
+    },
+    {
+      "term": "Uniqueness",
+      "definition": "A quality dimension measuring the absence of unintended duplicate records for the same entity."
+    },
+    {
+      "term": "Critical Data Element",
+      "definition": "A data field or attribute prioritized for governance and quality because of high business or compliance impact."
+    },
+    {
+      "term": "Master Data",
+      "definition": "Core shared data about key business entities such as customers, products, suppliers, or locations."
+    },
+    {
+      "term": "Reference Data",
+      "definition": "Controlled lists and codes used to classify or validate other data, such as country or currency codes."
+    },
+    {
+      "term": "Master Data Management (MDM)",
+      "definition": "Disciplines and technologies for creating consistent, stewarded views of master entities across systems."
+    },
+    {
+      "term": "Golden Record",
+      "definition": "A reconciled, trusted representation of a master entity assembled from multiple sources using matching and survivorship rules."
+    },
+    {
+      "term": "Survivorship Rules",
+      "definition": "Rules that decide which source value wins when conflicting attributes are merged into a master record."
+    },
+    {
+      "term": "Data Integration",
+      "definition": "Processes and patterns that move, combine, or expose data across systems so consumers receive aligned inputs."
+    },
+    {
+      "term": "Interoperability",
+      "definition": "The ability of systems and datasets to exchange and make use of information through shared formats and interfaces."
+    },
+    {
+      "term": "Data Architecture",
+      "definition": "The blueprint of data structures, platforms, and flows designed to support enterprise strategy."
+    },
+    {
+      "term": "Data Model",
+      "definition": "A structured representation of entities, attributes, and relationships at conceptual, logical, or physical levels."
+    },
+    {
+      "term": "Data Security",
+      "definition": "Controls and practices that protect data confidentiality, integrity, and appropriate availability."
+    },
+    {
+      "term": "Encryption at Rest",
+      "definition": "Protecting stored data by encoding it so unauthorized parties cannot read it without keys."
+    },
+    {
+      "term": "Encryption in Transit",
+      "definition": "Protecting data while it moves across networks using secure protocols."
+    },
+    {
+      "term": "Least Privilege",
+      "definition": "Granting people and systems only the minimum access required for their legitimate tasks."
+    },
+    {
+      "term": "Data Sharing Agreement",
+      "definition": "A contractual or policy instrument describing allowed uses, protections, and responsibilities when data is shared between parties."
+    },
+    {
+      "term": "Archive",
+      "definition": "Long-term retention of selected data in durable, documented form for continuing legal, scientific, or business value."
+    },
+    {
+      "term": "Secure Destruction",
+      "definition": "Irreversible removal of data from relevant systems and media according to policy when retention ends."
+    },
+    {
+      "term": "DCAM",
+      "definition": "The Data Management Capability Assessment Model from the EDM Association—used to assess and improve data management capabilities."
+    },
+    {
+      "term": "COBIT",
+      "definition": "ISACA’s framework for governance and management of enterprise information and technology."
+    },
+    {
+      "term": "CMMI / DMM (high-level)",
+      "definition": "Maturity-oriented approaches used in some programs to score how repeatable and optimized processes are; often paired with frameworks that define what practices should exist."
+    },
+    {
+      "term": "ISO 8000 (high-level)",
+      "definition": "An international standards family associated with data quality and related concepts; organizations may align practices to it in regulated contexts."
+    },
+    {
+      "term": "Business Intelligence (BI)",
+      "definition": "Practices and tools that turn curated analytical data into reports, dashboards, and insights for decision-makers."
+    },
+    {
+      "term": "Semantic Layer",
+      "definition": "A business-friendly mapping of metrics and entities that sits between raw data structures and analytical consumers."
+    },
+    {
+      "term": "Data Product",
+      "definition": "A curated, documented, and governed data asset packaged for specific consumers with clear ownership and SLAs."
+    }
+  ]
+}
